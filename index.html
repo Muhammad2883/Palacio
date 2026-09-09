@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Palacio Pyramids Hotel - Luxury Royal Menu</title>
+  <meta name="description" content="Experience the pure white & royal gold dine-in menu of Palacio Pyramids Hotel. All prices include service and tax." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Cinzel & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Early Theme Detection to Prevent Flicker -->
+  <script>
+    try {
+      const savedTheme = localStorage.getItem('palacio-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (e) {}
+  </script>
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#fdfbf7',
+              100: '#faf5ea',
+              200: '#f3e8cf',
+              300: '#e8d4a6',
+              400: '#d4b76e',
+              500: '#b88f3a',
+              600: '#9b7324',
+              700: '#7c5717',
+              800: '#5c3e0c',
+              900: '#3d2705',
+            },
+            royal: {
+              gold: '#966e1d',
+              dark: '#1a1815',
+              muted: '#615a4f',
+              border: '#e8dcbe',
+              surface: '#fcfbfa',
+              card: '#ffffff',
+            }
+          },
+          fontFamily: {
+            brand: ['Cinzel', 'serif'],
+            sans: ['Montserrat', 'sans-serif'],
+          },
+          boxShadow: {
+            'royal-glow': '0 0 25px -4px rgba(184, 143, 58, 0.25)',
+            'royal-card': '0 8px 30px -4px rgba(150, 110, 29, 0.08), 0 2px 10px rgba(0, 0, 0, 0.03)',
+            'royal-float': '0 14px 40px -6px rgba(150, 110, 29, 0.16), 0 4px 14px rgba(0, 0, 0, 0.04)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Utilities & Motion */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    ::selection {
+      background-color: #d4b76e;
+      color: #1a1815;
+    }
+
+    /* Pure White Luxury Background Pattern */
+    .bg-white-luxury {
+      background-color: #ffffff;
+      background-image: radial-gradient(rgba(184, 143, 58, 0.06) 1.2px, transparent 0);
+      background-size: 26px 26px;
+    }
+
+    /* Metallic Gold Text Shimmer */
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #7c5717 0%, #b88f3a 50%, #966e1d 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Classic Editorial Dotted Leader Line - Thickened Royal Gold */
+    .menu-row {
+      position: relative;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .menu-leader-dots {
+      flex: 1;
+      margin: 0 0.5rem;
+      border-bottom: 2.5px dotted rgba(184, 143, 58, 0.45);
+      position: relative;
+      top: -4px;
+      transition: border-color 0.2s ease;
+    }
+
+    .menu-row:hover .menu-leader-dots {
+      border-bottom-color: rgba(184, 143, 58, 0.95);
+    }
+
+    .menu-row:hover {
+      background: #faf7ef;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      border-radius: 0.5rem;
+    }
+
+    /* Category Card - Thickened Royal Gold Border */
+    .category-card {
+      border: 2px solid rgba(212, 183, 110, 0.85);
+      box-shadow: 0 10px 30px -4px rgba(150, 110, 29, 0.12), 0 2px 10px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .category-card:hover {
+      border-color: #b88f3a;
+      box-shadow: 0 16px 45px -6px rgba(150, 110, 29, 0.22), 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Ken Burns Subtle Slow Zoom */
+    @keyframes kenburns {
+      0% { transform: scale(1.0); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1.0); }
+    }
+
+    .animate-kenburns {
+      animation: kenburns 14s ease-in-out infinite alternate;
+    }
+
+    /* Royal Gold Header Plaque */
+    .plaque-header {
+      background: linear-gradient(135deg, #8c6414 0%, #b88f3a 50%, #754f0a 100%);
+      box-shadow: 0 3px 12px rgba(140, 100, 20, 0.25), inset 0 1px 0 rgba(255, 240, 200, 0.4);
+    }
+
+    /* Search match highlight */
+    mark.search-highlight {
+      background-color: rgba(212, 183, 110, 0.35);
+      color: #5c3e0c;
+      border-radius: 2px;
+      padding: 0 2px;
+      font-weight: 600;
+    }
+
+    /* DARK MODE LUXURY STYLING OVERRIDES */
+    html.dark {
+      color-scheme: dark;
+    }
+
+    html.dark body {
+      background-color: #0c0b09;
+      background-image: radial-gradient(rgba(212, 183, 110, 0.09) 1.2px, transparent 0);
+      background-size: 26px 26px;
+      color: #ede8df;
+    }
+
+    html.dark .bg-white-luxury {
+      background-color: #0c0b09;
+    }
+
+    html.dark header {
+      background: linear-gradient(to bottom, #191611 0%, #12100d 60%, #0c0b09 100%) !important;
+      border-color: rgba(212, 183, 110, 0.2) !important;
+    }
+
+    html.dark .tax-badge {
+      background-color: #1a1712 !important;
+      border-color: rgba(212, 183, 110, 0.4) !important;
+      color: #e5c378 !important;
+    }
+
+    html.dark .sticky-nav-bar {
+      background-color: rgba(14, 13, 10, 0.95) !important;
+      border-color: rgba(212, 183, 110, 0.2) !important;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    html.dark #searchInput {
+      background-color: #181511 !important;
+      border-color: rgba(212, 183, 110, 0.35) !important;
+      color: #f7f4ee !important;
+    }
+
+    html.dark #searchInput::placeholder {
+      color: #857b6b !important;
+    }
+
+    html.dark #searchInput:focus {
+      border-color: #d4b76e !important;
+      box-shadow: 0 0 0 1px rgba(212, 183, 110, 0.5) !important;
+    }
+
+    html.dark .theme-btn {
+      background-color: #181511 !important;
+      border-color: rgba(212, 183, 110, 0.4) !important;
+      color: #e5c378 !important;
+    }
+
+    html.dark .theme-btn:hover {
+      background-color: #242019 !important;
+      border-color: #d4b76e !important;
+      color: #f3e8cf !important;
+    }
+
+    html.dark .category-pill-inactive {
+      background-color: #171410 !important;
+      color: #dfd8cb !important;
+      border-color: rgba(212, 183, 110, 0.3) !important;
+    }
+
+    html.dark .category-pill-inactive:hover {
+      background-color: #241f17 !important;
+      border-color: #d4b76e !important;
+      color: #f3e8cf !important;
+    }
+
+    html.dark .pill-count-badge {
+      background-color: rgba(212, 183, 110, 0.15) !important;
+      color: #e5c378 !important;
+    }
+
+    html.dark .category-card {
+      background-color: #14120e !important;
+      border-color: rgba(212, 183, 110, 0.65) !important;
+      box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.8), 0 0 20px rgba(184, 143, 58, 0.1) !important;
+    }
+
+    html.dark .category-card:hover {
+      border-color: #e5c378 !important;
+      box-shadow: 0 16px 45px -5px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 183, 110, 0.22) !important;
+    }
+
+    html.dark .category-card-right {
+      background-color: #14120e !important;
+    }
+
+    html.dark .menu-card-divider {
+      border-color: rgba(212, 183, 110, 0.25) !important;
+    }
+
+    html.dark .menu-row:hover {
+      background: rgba(212, 183, 110, 0.08) !important;
+    }
+
+    html.dark .menu-item-name {
+      color: #f2ede4 !important;
+    }
+
+    html.dark .menu-row:hover .menu-item-name {
+      color: #e5c378 !important;
+    }
+
+    html.dark .menu-item-desc {
+      color: #a49a89 !important;
+    }
+
+    html.dark .menu-leader-dots {
+      border-bottom-color: rgba(212, 183, 110, 0.3) !important;
+    }
+
+    html.dark .menu-row:hover .menu-leader-dots {
+      border-bottom-color: rgba(212, 183, 110, 0.85) !important;
+    }
+
+    html.dark .menu-item-price {
+      color: #e5c378 !important;
+    }
+
+    html.dark .item-badge {
+      background-color: rgba(184, 143, 58, 0.2) !important;
+      border-color: rgba(212, 183, 110, 0.5) !important;
+      color: #e5c378 !important;
+    }
+
+    html.dark .price-pill {
+      background-color: #1c1812 !important;
+      border-color: rgba(212, 183, 110, 0.5) !important;
+      color: #e5c378 !important;
+    }
+
+    html.dark .photo-name-badge {
+      background-color: rgba(20, 18, 14, 0.92) !important;
+      border-color: rgba(212, 183, 110, 0.55) !important;
+      color: #e5c378 !important;
+    }
+
+    html.dark footer {
+      background-color: #0c0b09 !important;
+      border-color: rgba(212, 183, 110, 0.2) !important;
+      color: #9e9381 !important;
+    }
+
+    html.dark footer p {
+      color: #8c8170 !important;
+    }
+
+    html.dark #imageModalContent {
+      background-color: #14120e !important;
+      border-color: #d4b76e !important;
+    }
+
+    html.dark #imageModalContent .modal-body {
+      background-color: #14120e !important;
+    }
+
+    html.dark #modalDesc {
+      color: #c4bbb0 !important;
+    }
+
+    html.dark #closeModalBtn {
+      background-color: rgba(24, 21, 16, 0.9) !important;
+      color: #e5c378 !important;
+    }
+
+    html.dark #closeModalBtn:hover {
+      background-color: #b88f3a !important;
+      color: #0c0b09 !important;
+    }
+
+    html.dark #backToTopBtn {
+      background-color: #181511 !important;
+      border-color: #d4b76e !important;
+      color: #e5c378 !important;
+    }
+
+    html.dark #backToTopBtn:hover {
+      background-color: #b88f3a !important;
+      color: #0c0b09 !important;
+    }
+
+    html.dark #emptyState h3 {
+      color: #f2ede4 !important;
+    }
+
+    html.dark #emptyState p {
+      color: #9e9381 !important;
+    }
+
+    html.dark #emptyState .empty-icon-box {
+      background-color: #181511 !important;
+      border-color: rgba(212, 183, 110, 0.4) !important;
+    }
+  </style>
+</head>
+<body class="bg-white-luxury text-royal-dark font-sans antialiased min-h-screen flex flex-col justify-between">
+
+  <!-- PURE WHITE & ROYAL GOLD INTERACTIVE SPLASH SCREEN -->
+  <div id="splashScreen" class="fixed inset-0 z-50 bg-white flex flex-col items-center justify-center p-6 transition-all duration-700 select-none shadow-2xl">
+    <!-- Ambient Golden Glow Rings -->
+    <div class="absolute w-96 h-96 rounded-full bg-gold-400/15 blur-3xl pointer-events-none animate-pulse"></div>
+    <div class="absolute -top-12 -left-12 w-72 h-72 rounded-full bg-gold-200/40 blur-2xl pointer-events-none"></div>
+
+    <div class="relative z-10 flex flex-col items-center text-center max-w-sm w-full">
+      <!-- Interactive Logo with Breathing & Hover Glow -->
+      <div class="relative group mb-6 cursor-pointer transform hover:scale-105 transition-transform duration-500" id="splashLogoBox" title="Tap to enter immediately">
+        <div class="absolute -inset-4 rounded-full bg-gradient-to-r from-gold-300/30 via-gold-400/40 to-gold-300/30 blur-xl opacity-70 group-hover:opacity-100 transition duration-700 animate-pulse"></div>
+        <img 
+          src="logo.png" 
+          alt="Palacio Pyramids Hotel Logo" 
+          class="relative w-48 sm:w-56 h-auto drop-shadow-[0_10px_25px_rgba(184,143,58,0.25)] transform group-hover:rotate-1 transition duration-500"
+        />
+      </div>
+
+      <!-- Welcome Status Text -->
+      <p id="splashStatusText" class="font-brand tracking-[0.3em] uppercase text-xs text-royal-gold mb-5 font-bold h-5 transition-all duration-300">
+        Loading Palacio Experience...
+      </p>
+
+      <!-- Fast Interactive Progress Bar Container -->
+      <div class="w-full max-w-[280px] sm:max-w-xs relative mb-3 cursor-pointer group" id="splashProgressBarContainer" title="Click to skip">
+        <div class="h-1.5 w-full bg-[#f4ede0] rounded-full overflow-hidden border border-gold-300/60 p-[1px] shadow-inner">
+          <div id="splashProgressBar" class="h-full bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 rounded-full w-0 transition-all duration-75 shadow-[0_0_10px_rgba(184,143,58,0.6)]"></div>
+        </div>
+      </div>
+
+      <!-- Percentage Counter & Quick Skip Button -->
+      <div class="flex items-center justify-between w-full max-w-[280px] sm:max-w-xs text-[11px] text-royal-muted font-mono px-1">
+        <span id="splashCounter" class="text-royal-gold font-bold">0%</span>
+        <button id="skipSplashBtn" class="text-royal-muted hover:text-royal-gold transition uppercase tracking-wider text-[10px] font-sans underline decoration-gold-400/60 underline-offset-4 font-medium">
+          Skip Intro →
+        </button>
+      </div>
+
+      <!-- Subtle Notice -->
+      <div class="mt-8 text-[10px] tracking-widest text-royal-muted uppercase font-brand flex items-center gap-2">
+        <span class="w-3 h-[1px] bg-gold-400/60"></span>
+        <span>Giza Plateau Vista • Dine-in Menu</span>
+        <span class="w-3 h-[1px] bg-gold-400/60"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PURE WHITE & GOLD HEADER HERO -->
+  <header class="relative pt-10 pb-8 text-center border-b border-royal-border bg-gradient-to-b from-gold-50 via-white to-white overflow-hidden shadow-sm">
+    <!-- Ambient Gold Rays -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-gold-200/30 blur-3xl pointer-events-none rounded-full"></div>
+    <div class="absolute -top-10 left-10 w-44 h-44 bg-gold-300/20 blur-2xl pointer-events-none rounded-full"></div>
+
+    <div class="max-w-2xl mx-auto px-4 relative z-10 flex flex-col items-center">
+      <!-- PALACIO PYRAMIDS OFFICIAL LOGO -->
+      <div class="relative group mb-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-gold-400/20 via-gold-300/30 to-gold-400/20 opacity-30 blur-md group-hover:opacity-70 transition duration-500"></div>
+        <img 
+          src="logo.png" 
+          alt="Palacio Pyramids Hotel Logo" 
+          class="relative w-40 sm:w-48 h-auto drop-shadow-[0_8px_20px_rgba(150,110,29,0.18)] transform hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+
+      <!-- Egyptian Ornamental Divider -->
+      <div class="flex items-center justify-center gap-3 my-2 w-full max-w-xs opacity-80">
+        <div class="h-[1px] flex-1 bg-gradient-to-r from-transparent via-gold-400/50 to-gold-500"></div>
+        <svg class="w-4 h-4 text-royal-gold" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L15 8L21 9L17 14L18 20L12 17L6 20L7 14L3 9L9 8L12 2Z"/>
+        </svg>
+        <div class="h-[1px] flex-1 bg-gradient-to-l from-transparent via-gold-400/50 to-gold-500"></div>
+      </div>
+
+      <!-- Verified Service & Tax Notice (PDF Exact Quote) -->
+      <div class="tax-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-50 border border-gold-300/80 text-xs text-royal-gold font-semibold shadow-sm">
+        <svg class="w-3.5 h-3.5 text-royal-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+        </svg>
+        <span>Prices include service and tax</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- STICKY FROSTED GLASS NAVIGATION & LIVE SEARCH -->
+  <div id="stickyNav" class="sticky top-0 z-40 bg-white/95 backdrop-blur-xl border-b border-royal-border shadow-md transition-all sticky-nav-bar">
+    <div class="max-w-5xl mx-auto px-4 pt-3 pb-2.5 space-y-2.5">
+      
+      <!-- Search & Theme Controls Row -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Live Search Bar -->
+        <div class="relative flex-1 flex items-center">
+          <div class="absolute left-3.5 text-royal-gold pointer-events-none flex items-center">
+            <svg class="w-4 h-4 text-royal-gold/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <input 
+            id="searchInput" 
+            type="text" 
+            inputmode="search"
+            placeholder="Search dishes, coffee, juices, mocktails..." 
+            class="w-full bg-[#fbf9f4] border border-gold-300/80 rounded-xl pl-10 pr-10 py-2.5 text-sm text-royal-dark placeholder-royal-muted/70 focus:outline-none focus:border-royal-gold focus:ring-1 focus:ring-gold-400/50 transition shadow-inner"
+          />
+          <button 
+            id="clearSearchBtn" 
+            class="hidden absolute right-3 p-1 rounded-full text-royal-muted hover:text-royal-gold hover:bg-gold-100 transition"
+            aria-label="Clear search">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Dark / Light Mode Toggle Button -->
+        <button 
+          id="themeToggleBtn" 
+          type="button"
+          aria-label="Toggle Dark / Light Mode"
+          title="Toggle Dark / Light Mode"
+          class="theme-btn flex-shrink-0 h-10 px-3 sm:px-4 rounded-xl border border-gold-300/80 bg-[#fbf9f4] text-royal-gold hover:bg-gold-100 hover:border-royal-gold transition-all duration-200 shadow-sm flex items-center justify-center gap-2 group cursor-pointer focus:outline-none">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg id="sunIcon" class="w-4 h-4 hidden text-gold-400 group-hover:rotate-45 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9h-1m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg id="moonIcon" class="w-4 h-4 text-royal-gold group-hover:-rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <span id="themeToggleText" class="text-xs font-semibold font-brand uppercase tracking-wider hidden md:inline">Mode</span>
+        </button>
+      </div>
+
+      <!-- Quick Category Nav Pills with Smooth Scrolling -->
+      <nav id="categoryNav" class="flex gap-2 overflow-x-auto no-scrollbar py-1 scroll-smooth" aria-label="Menu categories">
+        <!-- Rendered dynamically -->
+      </nav>
+
+      <!-- Active Search Status Bar -->
+      <div id="searchStatus" class="hidden flex items-center justify-between text-xs text-royal-muted px-1 pt-0.5 font-medium">
+        <span id="searchStatusText">Filtering items...</span>
+        <button id="resetSearchLink" class="text-royal-gold hover:underline font-bold">Show All</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN MENU CONTAINER (Editorial Pure White & Royal Gold) -->
+  <main class="max-w-5xl mx-auto px-4 py-8 w-full flex-1 space-y-14" id="menuContainer">
+    <!-- Category sections with full-bleed photos & dotted leader tables rendered dynamically -->
+  </main>
+
+  <!-- EMPTY SEARCH STATE -->
+  <div id="emptyState" class="hidden max-w-md mx-auto my-16 px-6 text-center">
+    <div class="empty-icon-box w-16 h-16 mx-auto mb-4 rounded-2xl bg-gold-50 border border-gold-300 flex items-center justify-center text-royal-gold shadow-sm">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+      </svg>
+    </div>
+    <h3 class="font-brand text-lg font-bold text-royal-dark">No Dishes Found</h3>
+    <p class="text-sm text-royal-muted mt-1 mb-5">We couldn't find any item matching your search. Browse all categories or reset the filter.</p>
+    <button id="emptyResetBtn" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 hover:from-gold-700 hover:to-gold-600 text-white font-semibold text-sm transition shadow-md shadow-gold-500/20">
+      <span>View Full Menu</span>
+    </button>
+  </div>
+
+  <!-- INTERACTIVE IMAGE MODAL / LIGHTBOX -->
+  <div id="imageModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+    <div class="relative max-w-3xl w-full bg-white border border-gold-300 rounded-3xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300" id="imageModalContent">
+      <button id="closeModalBtn" class="absolute top-4 right-4 z-20 p-2 rounded-full bg-white/80 text-royal-dark hover:bg-gold-500 hover:text-white shadow-md transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="relative h-80 sm:h-96 w-full overflow-hidden">
+        <img id="modalImg" src="" alt="" class="w-full h-full object-cover object-center" />
+        <div class="absolute inset-0 bg-gradient-to-t from-white/90 via-transparent to-transparent"></div>
+      </div>
+      <div class="modal-body p-6 bg-white">
+        <h3 id="modalTitle" class="font-brand text-2xl font-bold text-royal-gold uppercase"></h3>
+        <p id="modalDesc" class="text-sm text-royal-dark/80 mt-1 leading-relaxed"></p>
+        <div class="modal-footer mt-4 flex items-center justify-between pt-3 border-t border-royal-border text-xs text-royal-muted">
+          <span>Palacio Pyramids Hotel • Giza Plateau</span>
+          <span class="text-royal-gold font-semibold">Prices include service & tax</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING 'BACK TO TOP' BUTTON -->
+  <button 
+    id="backToTopBtn" 
+    class="fixed bottom-6 right-5 z-40 p-3 rounded-full bg-white border border-gold-300 text-royal-gold shadow-royal-float opacity-0 pointer-events-none transition-all duration-300 hover:bg-gold-500 hover:text-white focus:outline-none"
+    aria-label="Back to top">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- LUXURY ROYAL FOOTER -->
+  <footer class="mt-20 border-t-2 border-gold-400/50 bg-gold-50/70 text-center py-12 px-4 text-xs text-royal-muted relative">
+    <div class="max-w-md mx-auto space-y-4">
+      <!-- Official Palacio Logo (Same as Header Logo) -->
+      <div class="relative group mx-auto cursor-pointer inline-block" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Palacio Pyramids Hotel - Back to top">
+        <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-gold-400/20 via-gold-300/30 to-gold-400/20 opacity-30 blur-md group-hover:opacity-75 transition duration-500"></div>
+        <img 
+          src="logo.png" 
+          alt="Palacio Pyramids Hotel Logo" 
+          class="relative w-36 sm:w-44 h-auto mx-auto drop-shadow-[0_6px_18px_rgba(150,110,29,0.2)] transform hover:scale-105 transition-transform duration-300"
+        />
+      </div>
+      <h4 class="font-brand text-sm tracking-[0.25em] text-royal-gold uppercase font-bold">
+        Palacio Pyramids Hotel
+      </h4>
+      <p class="text-royal-muted text-[11px] leading-relaxed">
+        Gourmet Fine Dining & Panoramic Pyramids Vista.<br>
+        All prices are in Egyptian Pounds (L.E) and inclusive of 12% service charge and applicable taxes.
+      </p>
+      <div class="pt-2 text-[10px] text-royal-muted/80 tracking-wider footer-copyright">
+        © 2026 Palacio Pyramids Hotel • Interactive Dining Experience
+      </div>
+    </div>
+  </footer>
+
+  <!-- COMPLETE MENU DATA ARCHITECTURE & DYNAMIC RENDERING SCRIPT -->
+  <script>
+    /**
+     * PALACIO PYRAMIDS HOTEL - EXACT PDF MENU DATA
+     * Features: Single prices, multi-column sizes (S/D, S/M), and authentic photographic heroes
+     */
+    const menuData = [
+      {
+        id: "soups",
+        name: "Soups",
+        icon: "🍲",
+        page: "Page 2",
+        image: "images/categories/soups.jpg",
+        type: "single",
+        items: [
+          { name: "Orzo Soup", price: "150" },
+          { name: "Lentil Soup", price: "150" },
+          { name: "Mushroom Soup", price: "150" },
+          { name: "Broccoli Soup", price: "150" },
+          { name: "Soup", price: "150" },
+          { name: "Seafood Soup", price: "250", badge: "Chef Recommends" },
+          { name: "Creamy Chicken Soup", price: "200" }
+        ]
+      },
+      {
+        id: "appetizers",
+        name: "Appetizers",
+        icon: "🥟",
+        page: "Page 3",
+        image: "images/categories/appetizers.jpg",
+        type: "single",
+        items: [
+          { name: "Kibbeh", price: "200" },
+          { name: "Cheese Sambousek", price: "150" },
+          { name: "Meat Sambousek", price: "200" },
+          { name: "Spring Roll", price: "150" },
+          { name: "Stuffed Grape Leaves Rolls", price: "150" },
+          { name: "French Fries", price: "150" },
+          { name: "Chicken Wings", price: "150" }
+        ]
+      },
+      {
+        id: "salads",
+        name: "Salads",
+        icon: "🥗",
+        page: "Page 4",
+        image: "images/categories/salads.jpg",
+        type: "single",
+        items: [
+          { name: "Caprese Salad", price: "250" },
+          { name: "Hummus Salad", price: "100" },
+          { name: "Caesar Salad", price: "150" },
+          { name: "Greek Salad", price: "100" },
+          { name: "Fattoush Salad", price: "100" },
+          { name: "Kloslaw Salad", price: "75" },
+          { name: "Tahini Salad", price: "50" },
+          { name: "Baba Ghanoush", price: "50" },
+          { name: "Yogurt Salad", price: "75" }
+        ]
+      },
+      {
+        id: "sandwiches",
+        name: "Sandwiches",
+        icon: "🥪",
+        page: "Page 5",
+        image: "images/categories/sandwiches.jpg",
+        type: "single",
+        items: [
+          { name: "Cheddar Sandwich", price: "150" },
+          { name: "Burger Sandwich", price: "435", badge: "Signature" },
+          { name: "Chicken Fajita Sandwich", price: "260" },
+          { name: "Club Sandwich", price: "200" },
+          { name: "Chicken Pane Sandwich", price: "200" }
+        ]
+      },
+      {
+        id: "seafood",
+        name: "Sea Food",
+        icon: "🦐",
+        page: "Page 5",
+        image: "images/categories/seafood.jpg",
+        type: "single",
+        items: [
+          { name: "Mixed Seafood", price: "900", badge: "House Specialty" },
+          { name: "Grilled Salmon Fillet", price: "950" },
+          { name: "Jumbo Shrimp", price: "1000", badge: "Premium" }
+        ]
+      },
+      {
+        id: "casseroles",
+        name: "Casserole (طواجن)",
+        icon: "🥘",
+        page: "Page 6",
+        image: "images/categories/casseroles.jpg",
+        type: "single",
+        items: [
+          { name: "Orzo Casserole", price: "350" },
+          { name: "Okra with Meat Casserole", price: "600" },
+          { name: "Veal & Potato Casserole", price: "580" },
+          { name: "Molokhia with Chicken Casserole", price: "290", badge: "Traditional" },
+          { name: "Oxtail with Onion Casserole", price: "650" },
+          { name: "Stuffed Grape Leaves with Trotters Casserole", price: "650", badge: "Specialty" }
+        ]
+      },
+      {
+        id: "pasta",
+        name: "Pasta",
+        icon: "🍝",
+        page: "Page 6",
+        image: "images/categories/pasta.jpg",
+        type: "single",
+        items: [
+          { name: "Spaghetti Bolognese", price: "320" },
+          { name: "Penne Arrabbiata", price: "350" },
+          { name: "Pesto Pasta", price: "250" },
+          { name: "Mac & Cheese Pasta", price: "350" },
+          { name: "Lasagna", price: "350" },
+          { name: "Baked Pasta with Bechamel", price: "350" },
+          { name: "Koshari", price: "150", badge: "Egyptian Classic" },
+          { name: "Pasta Red Sauce", price: "100" }
+        ]
+      },
+      {
+        id: "main-dishes",
+        name: "Main Dishes",
+        icon: "🥩",
+        page: "Page 7",
+        image: "images/categories/main-dishes.jpg",
+        note: "Served with rice and sautéed vegetables or fries",
+        type: "single",
+        items: [
+          { name: "Chicken Basilico", price: "450" },
+          { name: "Chicken Toscana", price: "600" },
+          { name: "Chicken Curry", price: "550" },
+          { name: "Chicken Supreme", price: "450" },
+          { name: "Beef Fillet", price: "850", badge: "Chef's Cut" },
+          { name: "Piccata with Mushroom Sauce", price: "450" },
+          { name: "Fish Florentine", price: "900" },
+          { name: "Fish with Lemon Butter", price: "800" },
+          { name: "Chicken Pane", price: "450" },
+          { name: "Boneless Fried Chicken", price: "520" },
+          { name: "Mixed Grill", price: "700", badge: "House Special" },
+          { name: "Lamb Shank Fattah", price: "545", badge: "Signature" }
+        ]
+      },
+      {
+        id: "desserts",
+        name: "Desserts",
+        icon: "🍰",
+        page: "Page 8",
+        image: "images/categories/desserts.jpg",
+        type: "single",
+        items: [
+          { name: "Umm Ali", price: "200", badge: "Signature" },
+          { name: "Crème Caramel", price: "150" },
+          { name: "Oriental Sweets", price: "200" },
+          { name: "Rice Pudding", price: "150" },
+          { name: "Cupcakes", price: "250" },
+          { name: "Gateau", price: "150" },
+          { name: "2 Pot Ice Cream", price: "150" },
+          { name: "Konafa", price: "150" }
+        ]
+      },
+      {
+        id: "herbs",
+        name: "Herbs & Warm Infusions",
+        icon: "🫖",
+        page: "Page 9",
+        image: "images/categories/herbs.jpg",
+        type: "herbs-combo",
+        items: [
+          { name: "Red Tea", price: "75" },
+          { name: "Green Tea", price: "75" },
+          { name: "Earl Grey Tea (Fruity Flavor)", price: "150" },
+          { name: "Anise", price: "75" },
+          { name: "Ginger", price: "75" },
+          { name: "Cinnamon", price: "75" },
+          { name: "Mint", price: "75" },
+          { name: "Apple Cider Tea", price: "100" },
+          { name: "Tea with Milk", price: "100" }
+        ],
+        multiItems: [
+          { name: "Hot Chocolate", priceS: "100", priceM: "150" },
+          { name: "Sahlab with Nuts", priceS: "150", priceM: "200" }
+        ]
+      },
+      {
+        id: "extras",
+        name: "Extra",
+        icon: "✨",
+        page: "Page 9",
+        image: "images/categories/extras.jpg",
+        type: "single",
+        items: [
+          { name: "Espresso Shot", price: "100" },
+          { name: "Whipped Cream", price: "50" },
+          { name: "Flavor Syrup", price: "50" },
+          { name: "Plant-based Milk", price: "100" },
+          { name: "Caramel & Chocolate Sauce", price: "50" },
+          { name: "Lotus & Nutella Sauce", price: "100" },
+          { name: "Regular Milk", price: "50" },
+          { name: "Vanilla or Chocolate Ice Cream", price: "100" },
+          { name: "Honey", price: "50" }
+        ]
+      },
+      {
+        id: "hot-coffee",
+        name: "Hot Coffee",
+        icon: "☕",
+        page: "Page 10",
+        image: "images/categories/hot-coffee.jpg",
+        type: "multi-sd",
+        items: [
+          { name: "Turkish Coffee", s: "100", d: "150" },
+          { name: "Espresso", s: "100", d: "150" },
+          { name: "Cortado", s: "200", d: "250" },
+          { name: "Latte", singlePrice: "200" },
+          { name: "Spanish Latte", singlePrice: "200" },
+          { name: "Cappuccino", singlePrice: "200" },
+          { name: "Mocha Dark", singlePrice: "200" },
+          { name: "Americano", s: "150", d: "200" },
+          { name: "Coffee with Honey", singlePrice: "150" },
+          { name: "Turkish Cappuccino", singlePrice: "200" },
+          { name: "Flat White", singlePrice: "250" }
+        ]
+      },
+      {
+        id: "frappe-blended",
+        name: "Frappé (Blended Drinks)",
+        icon: "🧋",
+        page: "Page 11",
+        image: "images/categories/frappe-blended.jpg",
+        type: "multi-sm",
+        items: [
+          { name: "Latte Frappé", s: "150", m: "200" },
+          { name: "Toffee Frappé", s: "200", m: "250" },
+          { name: "Mocha Frappé", s: "150", m: "200" },
+          { name: "Chocolate Cookies", s: "200", m: "250" },
+          { name: "Lotus Latte Frappé", s: "200", m: "250" }
+        ]
+      },
+      {
+        id: "frappe-caffeine-free",
+        name: "Frappé Free Caffeine",
+        icon: "🥤",
+        page: "Page 11",
+        image: "images/categories/frappe-caffeine-free.jpg",
+        type: "multi-sm",
+        items: [
+          { name: "Vanilla Frappé", s: "100", m: "150" },
+          { name: "Strawberry Vanilla Frappé", s: "200", m: "250" },
+          { name: "Lotus Vanilla Frappé", s: "200", m: "250" }
+        ]
+      },
+      {
+        id: "ice-shakes",
+        name: "Ice Shakes",
+        icon: "🥛",
+        page: "Page 11",
+        image: "images/categories/ice-shakes.jpg",
+        type: "single",
+        items: [
+          { name: "Oreo Shake", price: "200" },
+          { name: "Snickers Shake", price: "200" },
+          { name: "Maltesers Shake", price: "250" }
+        ]
+      },
+      {
+        id: "soft-drinks",
+        name: "Soft Drinks & Beverages",
+        icon: "🧊",
+        page: "Page 12",
+        image: "images/categories/soft-drinks.jpg",
+        type: "single",
+        items: [
+          { name: "Monster Flavors", price: "150" },
+          { name: "Pepsi", price: "75" },
+          { name: "7UP", price: "75" },
+          { name: "Water", price: "35" },
+          { name: "Sparkling Water", price: "150" },
+          { name: "Schweppes", desc: "(Peach • Pineapple • Pomegranate • Lemon Mint)", price: "75" },
+          { name: "Birell", price: "100" },
+          { name: "Twist", price: "75" },
+          { name: "Redbull Flavors", price: "150" }
+        ]
+      },
+      {
+        id: "iced-coffee",
+        name: "Iced Coffee",
+        icon: "🧋",
+        page: "Page 12",
+        image: "images/categories/iced-coffee.jpg",
+        type: "single",
+        items: [
+          { name: "Iced Latte", price: "200" },
+          { name: "Iced Americano", price: "200" },
+          { name: "Iced Mocha", price: "200" },
+          { name: "Iced Cappuccino", price: "200" },
+          { name: "Iced Caramel Macchiato", price: "200" },
+          { name: "Iced Spanish Latte", price: "200" }
+        ]
+      },
+      {
+        id: "florida",
+        name: "Florida (Mocktails & Signatures)",
+        icon: "🍹",
+        page: "Page 13",
+        image: "images/categories/florida.jpg",
+        type: "single",
+        items: [
+          { name: "Palacio Cocktail", desc: "(Mango • Strawberry • Banana)", price: "200", badge: "Signature" },
+          { name: "Mango Mint", price: "200" },
+          { name: "Guava Mint", price: "200" },
+          { name: "Orange with Ginger", price: "200" },
+          { name: "Kiwi Lemon Mint", desc: "(Shiraz Flavor)", price: "200" },
+          { name: "Pink Lemonade", price: "200" },
+          { name: "Mojito Ice Refresher", price: "200" },
+          { name: "Blueberry Red Bull with 7UP", price: "250" },
+          { name: "Strawberry Red Bull with 7UP", price: "250" },
+          { name: "Passion Fruit Red Bull with 7UP", price: "250" },
+          { name: "Raspberry Red Bull with 7UP", price: "250" },
+          { name: "Blue Curaçao", price: "200" },
+          { name: "Peach Iced Tea", price: "150" },
+          { name: "Raspberry Iced Tea", price: "150" }
+        ]
+      },
+      {
+        id: "smoothies",
+        name: "Smoothies",
+        icon: "🍓",
+        page: "Page 14",
+        image: "images/categories/smoothies.jpg",
+        type: "single",
+        items: [
+          { name: "Mango Smoothie", price: "120" },
+          { name: "Guava Smoothie", price: "120" },
+          { name: "Strawberry Smoothie", price: "120" },
+          { name: "Orange Smoothie", price: "120" },
+          { name: "Banana Milk Smoothie", price: "120" },
+          { name: "Kiwi Smoothie", price: "120" },
+          { name: "Pineapple Smoothie", price: "120" },
+          { name: "Peach Smoothie", price: "120" },
+          { name: "Lemon Mint Smoothie", price: "120" }
+        ]
+      },
+      {
+        id: "fresh-juice",
+        name: "Fresh Juice",
+        icon: "🍊",
+        page: "Page 15",
+        image: "images/categories/fresh-juice.jpg",
+        type: "single",
+        items: [
+          { name: "Mango", price: "150" },
+          { name: "Guava", price: "150" },
+          { name: "Strawberry", price: "150" },
+          { name: "Orange", price: "150" },
+          { name: "Lemon Mint", price: "120" },
+          { name: "Banana Milk", price: "150" },
+          { name: "Avocado", price: "200" },
+          { name: "Kiwi", price: "200" },
+          { name: "Pineapple", price: "200" },
+          { name: "Peach", price: "200" }
+        ]
+      }
+    ];
+
+    // DOM Elements
+    const navContainer = document.getElementById("categoryNav");
+    const menuContainer = document.getElementById("menuContainer");
+    const searchInput = document.getElementById("searchInput");
+    const clearSearchBtn = document.getElementById("clearSearchBtn");
+    const searchStatus = document.getElementById("searchStatus");
+    const searchStatusText = document.getElementById("searchStatusText");
+    const resetSearchLink = document.getElementById("resetSearchLink");
+    const emptyState = document.getElementById("emptyState");
+    const emptyResetBtn = document.getElementById("emptyResetBtn");
+    const backToTopBtn = document.getElementById("backToTopBtn");
+
+    // Modal Elements
+    const imageModal = document.getElementById("imageModal");
+    const modalContent = document.getElementById("imageModalContent");
+    const modalImg = document.getElementById("modalImg");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDesc = document.getElementById("modalDesc");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+
+    let currentActiveCat = menuData[0]?.id || "";
+
+    /**
+     * Escape special HTML characters
+     */
+    function escapeHtml(str) {
+      if (!str) return "";
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    /**
+     * Highlight query match
+     */
+    function highlightMatch(text, query) {
+      if (!query) return escapeHtml(text);
+      const safeText = escapeHtml(text);
+      const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      return safeText.replace(regex, '<mark class="search-highlight">$1</mark>');
+    }
+
+    /**
+     * Open Image Lightbox Modal
+     */
+    function openModal(imgSrc, title, desc) {
+      modalImg.src = imgSrc;
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc || "Authentic culinary photography overlooking the Great Pyramids at sunset.";
+      imageModal.classList.remove("hidden");
+      setTimeout(() => {
+        imageModal.classList.remove("opacity-0");
+        modalContent.classList.remove("scale-95");
+        modalContent.classList.add("scale-100");
+      }, 10);
+    }
+
+    function closeModal() {
+      imageModal.classList.add("opacity-0");
+      modalContent.classList.remove("scale-100");
+      modalContent.classList.add("scale-95");
+      setTimeout(() => {
+        imageModal.classList.add("hidden");
+      }, 300);
+    }
+
+    closeModalBtn.addEventListener("click", closeModal);
+    imageModal.addEventListener("click", (e) => {
+      if (e.target === imageModal) closeModal();
+    });
+
+    /**
+     * Render Navigation Pills with Image Avatars
+     */
+    function renderNav() {
+      navContainer.innerHTML = menuData.map(cat => {
+        const isActive = cat.id === currentActiveCat;
+        return `
+          <button 
+            type="button"
+            data-target="${cat.id}" 
+            class="category-pill whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-medium border transition-all duration-200 flex items-center gap-2 flex-shrink-0 ${
+              isActive 
+                ? 'bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 text-white font-bold border-gold-600 shadow-md shadow-gold-500/25' 
+                : 'category-pill-inactive bg-[#fbf9f4] text-royal-dark border-gold-300/70 hover:border-royal-gold hover:text-royal-gold hover:bg-gold-50'
+            }">
+            <img src="${cat.image}" alt="" class="w-4 h-4 rounded-full object-cover border ${isActive ? 'border-white' : 'border-gold-400/50'}" />
+            <span>${cat.name}</span>
+            <span class="pill-count-badge text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-white/25 text-white font-bold' : 'bg-gold-100 text-royal-gold'}">${cat.items ? cat.items.length : ''}</span>
+          </button>
+        `;
+      }).join('');
+
+      navContainer.querySelectorAll('.category-pill').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute('data-target');
+          const targetElem = document.getElementById(targetId);
+          if (targetElem) {
+            const headerOffset = 140;
+            const elementPosition = targetElem.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+
+            setActivePill(targetId);
+          }
+        });
+      });
+    }
+
+    function setActivePill(categoryId) {
+      currentActiveCat = categoryId;
+      navContainer.querySelectorAll('.category-pill').forEach(pill => {
+        const target = pill.getAttribute('data-target');
+        const countSpan = pill.querySelector('span:last-child');
+        const thumbImg = pill.querySelector('img');
+        if (target === categoryId) {
+          pill.className = "category-pill whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-bold border transition-all duration-200 flex items-center gap-2 flex-shrink-0 bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 text-white border-gold-600 shadow-md shadow-gold-500/25";
+          if (countSpan) countSpan.className = "pill-count-badge text-[10px] px-1.5 py-0.2 rounded-full bg-white/25 text-white font-bold";
+          if (thumbImg) thumbImg.className = "w-4 h-4 rounded-full object-cover border border-white";
+          pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          pill.className = "category-pill category-pill-inactive whitespace-nowrap px-3.5 py-1.5 rounded-full text-xs font-medium border transition-all duration-200 flex items-center gap-2 flex-shrink-0 bg-[#fbf9f4] text-royal-dark border-gold-300/70 hover:border-royal-gold hover:text-royal-gold hover:bg-gold-50";
+          if (countSpan) countSpan.className = "pill-count-badge text-[10px] px-1.5 py-0.2 rounded-full bg-gold-100 text-royal-gold";
+          if (thumbImg) thumbImg.className = "w-4 h-4 rounded-full object-cover border border-gold-400/50";
+        }
+      });
+    }
+
+    /**
+     * Render Single-Price Row with Classic Editorial Dotted Leaders
+     */
+    function renderSingleItemRow(item, query) {
+      return `
+        <div class="menu-row py-1.5 flex items-baseline justify-between group cursor-default">
+          <div class="flex flex-col flex-shrink-0 max-w-[65%] sm:max-w-[75%]">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="menu-item-name font-medium text-royal-dark text-sm sm:text-[15px] group-hover:text-royal-gold transition">
+                ${highlightMatch(item.name, query)}
+              </span>
+              ${item.badge ? `
+                <span class="item-badge text-[9px] uppercase font-semibold px-1.5 py-0.5 rounded bg-gold-100 text-royal-gold border-[1.5px] border-gold-400 tracking-wider">
+                  ${item.badge}
+                </span>
+              ` : ''}
+            </div>
+            ${item.desc ? `
+              <span class="menu-item-desc text-[11px] text-royal-muted italic mt-0.5">
+                ${highlightMatch(item.desc, query)}
+              </span>
+            ` : ''}
+          </div>
+
+          <div class="menu-leader-dots"></div>
+
+          <div class="flex-shrink-0 text-right">
+            <span class="menu-item-price font-bold text-sm sm:text-base text-royal-gold tracking-wide font-sans">
+              ${item.price} <span class="text-[11px] text-royal-gold/80 font-normal">L.E</span>
+            </span>
+          </div>
+        </div>
+      `;
+    }
+
+    /**
+     * Render Multi-Size S/D Row (Hot Coffee)
+     */
+    function renderMultiSdRow(item, query) {
+      return `
+        <div class="menu-row py-1.5 flex items-baseline justify-between group cursor-default">
+          <div class="flex-shrink-0 max-w-[55%] sm:max-w-[65%]">
+            <span class="menu-item-name font-medium text-royal-dark text-sm sm:text-[15px] group-hover:text-royal-gold transition">
+              ${highlightMatch(item.name, query)}
+            </span>
+          </div>
+          <div class="menu-leader-dots"></div>
+          <div class="flex items-center gap-4 sm:gap-6 flex-shrink-0 text-right min-w-[70px] sm:min-w-[90px] justify-end">
+            ${item.singlePrice ? `
+              <span class="menu-item-price font-bold text-sm sm:text-base text-royal-gold pr-1">
+                ${item.singlePrice}
+              </span>
+            ` : `
+              <span class="menu-item-price font-bold text-sm sm:text-base text-royal-gold w-7 sm:w-9 text-right">
+                ${item.s || '-'}
+              </span>
+              <span class="menu-item-price font-bold text-sm sm:text-base text-royal-gold w-7 sm:w-9 text-right">
+                ${item.d || '-'}
+              </span>
+            `}
+          </div>
+        </div>
+      `;
+    }
+
+    /**
+     * Render Multi-Size S/M Row (Frappe)
+     */
+    function renderMultiSmRow(item, query) {
+      return `
+        <div class="menu-row py-1.5 flex items-baseline justify-between group cursor-default">
+          <div class="flex-shrink-0 max-w-[55%] sm:max-w-[65%]">
+            <span class="menu-item-name font-medium text-royal-dark text-sm sm:text-[15px] group-hover:text-royal-gold transition">
+              ${highlightMatch(item.name, query)}
+            </span>
+          </div>
+          <div class="menu-leader-dots"></div>
+          <div class="flex items-center gap-4 sm:gap-6 flex-shrink-0 text-right min-w-[70px] sm:min-w-[90px] justify-end">
+            <span class="menu-item-price font-bold text-sm sm:text-base text-royal-gold w-7 sm:w-9 text-right">
+              ${item.s || '-'}
+            </span>
+            <span class="menu-item-price font-bold text-sm sm:text-base text-royal-gold w-7 sm:w-9 text-right">
+              ${item.m || '-'}
+            </span>
+          </div>
+        </div>
+      `;
+    }
+
+    /**
+     * Render Whole Editorial Menu with Thickened Royal Gold Border & No Page Numbers on Photos
+     */
+    function renderMenu(data, query = "") {
+      if (!data || data.length === 0) {
+        menuContainer.innerHTML = "";
+        emptyState.classList.remove("hidden");
+        return;
+      }
+
+      emptyState.classList.add("hidden");
+
+      menuContainer.innerHTML = data.map(category => `
+        <section id="${category.id}" class="scroll-mt-36">
+          
+          <!-- Editorial Spread Card with Thickened Royal Gold Border -->
+          <div class="category-card rounded-3xl bg-white border-2 border-gold-400/80 shadow-royal-card overflow-hidden transition-all duration-300 hover:shadow-royal-float hover:border-gold-500">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+              
+              <!-- LEFT COLUMN: Photographic Hero with Ken Burns Motion -->
+              <div class="lg:col-span-5 relative h-64 sm:h-80 lg:h-auto min-h-[260px] overflow-hidden group cursor-pointer border-b-2 lg:border-b-0 lg:border-r-2 border-gold-300/70 menu-card-divider"
+                   onclick="openModal('${category.image}', '${category.name}', '${category.note || ''}')">
+                <img 
+                  src="${category.image}" 
+                  alt="${category.name} - Palacio Pyramids Hotel" 
+                  loading="lazy"
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 animate-kenburns"
+                />
+                <!-- Overlays & Badges (Category Name without any page number) -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                <div class="photo-name-badge absolute top-3 left-3 px-3 py-1.5 rounded-full bg-white/95 border-[1.5px] border-gold-400 text-[10px] uppercase font-bold text-royal-gold backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                  <span>${category.icon}</span>
+                  <span class="tracking-wide">${category.name}</span>
+                </div>
+                <!-- Tap to View Large Button -->
+                <div class="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-3 py-1 rounded-full bg-gradient-to-r from-gold-600 to-gold-500 text-white text-xs font-bold shadow-md flex items-center gap-1">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                  </svg>
+                  <span>View Photo</span>
+                </div>
+              </div>
+
+              <!-- RIGHT COLUMN: Editorial Restaurant Menu Layout -->
+              <div class="category-card-right lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between bg-white">
+                <div>
+                  <!-- Category Plaque Header in Royal Gold -->
+                  <div class="menu-card-divider flex items-center justify-between mb-4 pb-2.5 border-b-2 border-gold-300/70">
+                    <div class="inline-block px-4 py-1.5 rounded-lg plaque-header">
+                      <h2 class="font-brand text-base sm:text-lg font-bold tracking-widest text-white uppercase drop-shadow-sm">
+                        ${category.name}
+                      </h2>
+                    </div>
+                    <!-- Column headers for L.E / Sizes if applicable -->
+                    ${category.type === 'multi-sd' ? `
+                      <div class="flex items-center gap-4 sm:gap-6 text-[11px] font-bold text-royal-gold uppercase tracking-widest min-w-[70px] sm:min-w-[90px] justify-end">
+                        <span class="w-7 sm:w-9 text-right">L.E <br><span class="text-xs text-royal-dark">S</span></span>
+                        <span class="w-7 sm:w-9 text-right">L.E <br><span class="text-xs text-royal-dark">D</span></span>
+                      </div>
+                    ` : ''}
+                    ${category.type === 'multi-sm' ? `
+                      <div class="flex items-center gap-4 sm:gap-6 text-[11px] font-bold text-royal-gold uppercase tracking-widest min-w-[70px] sm:min-w-[90px] justify-end">
+                        <span class="w-7 sm:w-9 text-right">L.E <br><span class="text-xs text-royal-dark">S</span></span>
+                        <span class="w-7 sm:w-9 text-right">L.E <br><span class="text-xs text-royal-dark">M</span></span>
+                      </div>
+                    ` : ''}
+                    ${category.type === 'single' ? `
+                      <span class="text-xs font-bold text-royal-gold tracking-wider">L.E</span>
+                    ` : ''}
+                  </div>
+
+                  <!-- Category Serving Note -->
+                  ${category.note ? `
+                    <p class="menu-item-desc text-xs text-royal-muted italic mb-4 flex items-center gap-1.5">
+                      <span class="text-royal-gold font-bold">ℹ</span> ${category.note}
+                    </p>
+                  ` : ''}
+
+                  <!-- Menu Rows -->
+                  <div class="space-y-1">
+                    ${category.type === 'single' ? category.items.map(item => renderSingleItemRow(item, query)).join('') : ''}
+                    ${category.type === 'multi-sd' ? category.items.map(item => renderMultiSdRow(item, query)).join('') : ''}
+                    ${category.type === 'multi-sm' ? category.items.map(item => renderMultiSmRow(item, query)).join('') : ''}
+                    
+                    ${category.type === 'herbs-combo' ? `
+                      <div class="space-y-1">
+                        ${category.items.map(item => renderSingleItemRow(item, query)).join('')}
+                        <!-- Multi-size box for Hot Chocolate & Sahlab -->
+                        <div class="menu-card-divider mt-4 pt-3 border-t-2 border-gold-300/70 space-y-2">
+                          ${category.multiItems.map(m => `
+                            <div class="menu-row py-1.5 flex items-center justify-between group">
+                              <span class="menu-item-name font-medium text-royal-dark text-sm">${m.name}</span>
+                              <div class="menu-leader-dots"></div>
+                              <div class="flex items-center gap-2">
+                                <span class="price-pill px-2 py-0.5 rounded bg-gold-50 border-[1.5px] border-gold-400 text-xs font-semibold text-royal-gold">
+                                  <span class="text-[10px] text-royal-muted uppercase">S</span> ${m.priceS} L.E
+                                </span>
+                                <span class="price-pill px-2 py-0.5 rounded bg-gold-50 border-[1.5px] border-gold-400 text-xs font-semibold text-royal-gold">
+                                  <span class="text-[10px] text-royal-muted uppercase">M</span> ${m.priceM} L.E
+                                </span>
+                              </div>
+                            </div>
+                          `).join('')}
+                        </div>
+                      </div>
+                    ` : ''}
+                  </div>
+                </div>
+
+                <!-- Section Footer Note -->
+                <div class="menu-card-divider pt-4 mt-6 border-t-2 border-gold-300/70 flex items-center justify-between text-[11px] text-royal-muted">
+                  <span class="italic text-royal-muted/90">Prices include service and tax</span>
+                  <div class="flex items-center gap-1.5 text-royal-gold">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2L15 8L21 9L17 14L18 20L12 17L6 20L7 14L3 9L9 8L12 2Z"/>
+                    </svg>
+                    <span class="font-brand uppercase tracking-wider text-[10px] font-bold">Palacio</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      `).join('');
+    }
+
+    /**
+     * Instant Live Search Filter
+     */
+    function handleSearch(e) {
+      const q = e.target.value.toLowerCase().trim();
+
+      if (!q) {
+        clearSearchBtn.classList.add("hidden");
+        searchStatus.classList.add("hidden");
+        renderMenu(menuData);
+        return;
+      }
+
+      clearSearchBtn.classList.remove("hidden");
+      searchStatus.classList.remove("hidden");
+
+      let totalMatches = 0;
+      const filtered = menuData.map(cat => {
+        let matchedItems = [];
+        if (cat.items) {
+          matchedItems = cat.items.filter(item => {
+            const inName = item.name.toLowerCase().includes(q);
+            const inDesc = item.desc && item.desc.toLowerCase().includes(q);
+            const inCat = cat.name.toLowerCase().includes(q);
+            return inName || inDesc || inCat;
+          });
+        }
+        totalMatches += matchedItems.length;
+        return {
+          ...cat,
+          items: matchedItems
+        };
+      }).filter(cat => (cat.items && cat.items.length > 0) || cat.name.toLowerCase().includes(q));
+
+      searchStatusText.textContent = `Found ${totalMatches} dish${totalMatches === 1 ? '' : 'es'} matching "${q}"`;
+      renderMenu(filtered, q);
+    }
+
+    function resetSearch() {
+      searchInput.value = "";
+      clearSearchBtn.classList.add("hidden");
+      searchStatus.classList.add("hidden");
+      renderMenu(menuData);
+      searchInput.focus();
+    }
+
+    searchInput.addEventListener("input", handleSearch);
+    clearSearchBtn.addEventListener("click", resetSearch);
+    resetSearchLink.addEventListener("click", resetSearch);
+    emptyResetBtn.addEventListener("click", resetSearch);
+
+    /**
+     * ScrollSpy for Sticky Nav Category Pills
+     */
+    function setupScrollSpy() {
+      const observerOptions = {
+        root: null,
+        rootMargin: "-140px 0px -60% 0px",
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        if (searchInput.value.trim().length > 0) return;
+
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            setActivePill(sectionId);
+          }
+        });
+      }, observerOptions);
+
+      menuData.forEach(cat => {
+        const elem = document.getElementById(cat.id);
+        if (elem) observer.observe(elem);
+      });
+    }
+
+    /**
+     * Back to Top Button
+     */
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+        backToTopBtn.classList.add('opacity-100');
+      } else {
+        backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+        backToTopBtn.classList.remove('opacity-100');
+      }
+    }, { passive: true });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /**
+     * Fast Interactive Splash Loader Controller
+     */
+    const splashScreen = document.getElementById("splashScreen");
+    const splashProgressBar = document.getElementById("splashProgressBar");
+    const splashCounter = document.getElementById("splashCounter");
+    const splashStatusText = document.getElementById("splashStatusText");
+    const skipSplashBtn = document.getElementById("skipSplashBtn");
+    const splashLogoBox = document.getElementById("splashLogoBox");
+    const splashProgressBarContainer = document.getElementById("splashProgressBarContainer");
+
+    let progress = 0;
+    let splashDismissed = false;
+
+    const statusMessages = [
+      { at: 15, text: "Curating Menu Selection..." },
+      { at: 45, text: "Brewing Signature Blends..." },
+      { at: 75, text: "Giza Pyramids Vista Dining..." },
+      { at: 95, text: "Welcome to Palacio Hotel" }
+    ];
+
+    function dismissSplash() {
+      if (splashDismissed) return;
+      splashDismissed = true;
+      if (splashProgressBar) splashProgressBar.style.width = "100%";
+      if (splashCounter) splashCounter.textContent = "100%";
+      if (splashStatusText) splashStatusText.textContent = "Welcome to Palacio Pyramids Hotel";
+      
+      setTimeout(() => {
+        if (splashScreen) {
+          splashScreen.classList.add("opacity-0", "pointer-events-none", "scale-105");
+          setTimeout(() => {
+            splashScreen.remove();
+          }, 700);
+        }
+      }, 200);
+    }
+
+    // Fast loading simulation (~1.2s)
+    const splashInterval = setInterval(() => {
+      if (splashDismissed) {
+        clearInterval(splashInterval);
+        return;
+      }
+
+      const increment = progress < 60 ? Math.floor(Math.random() * 8) + 4 : Math.floor(Math.random() * 12) + 8;
+      progress = Math.min(progress + increment, 100);
+
+      if (splashProgressBar) splashProgressBar.style.width = progress + "%";
+      if (splashCounter) splashCounter.textContent = progress + "%";
+
+      for (let i = statusMessages.length - 1; i >= 0; i--) {
+        if (progress >= statusMessages[i].at) {
+          if (splashStatusText) splashStatusText.textContent = statusMessages[i].text;
+          break;
+        }
+      }
+
+      if (progress >= 100) {
+        clearInterval(splashInterval);
+        dismissSplash();
+      }
+    }, 40);
+
+    // Interactive skip triggers on click / tap
+    if (skipSplashBtn) skipSplashBtn.addEventListener("click", dismissSplash);
+    if (splashLogoBox) splashLogoBox.addEventListener("click", dismissSplash);
+    if (splashProgressBarContainer) splashProgressBarContainer.addEventListener("click", dismissSplash);
+
+    /**
+     * Theme Toggle Controller (Dark / Light Mode)
+     */
+    const themeToggleBtn = document.getElementById("themeToggleBtn");
+    const sunIcon = document.getElementById("sunIcon");
+    const moonIcon = document.getElementById("moonIcon");
+    const themeToggleText = document.getElementById("themeToggleText");
+
+    function updateThemeUI(isDark) {
+      if (isDark) {
+        document.documentElement.classList.add("dark");
+        if (sunIcon) sunIcon.classList.remove("hidden");
+        if (moonIcon) moonIcon.classList.add("hidden");
+        if (themeToggleText) themeToggleText.textContent = "Light";
+      } else {
+        document.documentElement.classList.remove("dark");
+        if (sunIcon) sunIcon.classList.add("hidden");
+        if (moonIcon) moonIcon.classList.remove("hidden");
+        if (themeToggleText) themeToggleText.textContent = "Dark";
+      }
+    }
+
+    function initTheme() {
+      const isDark = document.documentElement.classList.contains("dark");
+      updateThemeUI(isDark);
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.toggle("dark");
+        localStorage.setItem("palacio-theme", isDark ? "dark" : "light");
+        updateThemeUI(isDark);
+        renderNav();
+      });
+    }
+
+    // Initial Execution
+    initTheme();
+    renderNav();
+    renderMenu(menuData);
+    setupScrollSpy();
+  </script>
+</body>
+</html>
