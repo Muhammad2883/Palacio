@@ -64,12 +64,30 @@
 }
 
 .hero-img-container {
-  aspect-ratio: 16 / 10;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 480px;
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .hero-img-container {
+    aspect-ratio: 16 / 10;
+    max-height: 380px;
+  }
 }
 @media (min-width: 1024px) {
   .hero-img-container {
     aspect-ratio: auto;
     height: 100%;
+    max-height: none;
+  }
+}
+.hero-img-container img {
+  object-fit: cover;
+  object-position: center top;
+}
+@media (min-width: 1024px) {
+  .hero-img-container img {
+    object-position: center center;
   }
 }
 
