@@ -7,13 +7,21 @@
   <title>Palacio Pyramids Hotel - Luxury Royal Menu</title>
   <meta name="description" content="Experience the pure white & royal gold dine-in menu of Palacio Pyramids Hotel. All prices include service and tax." />
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Preload LCP Hero Image & Logo for Instant Render Discovery -->
+  <link rel="preload" as="image" href="images/categories/soups.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="logo.webp" fetchpriority="high">
 
-  <!-- Google Fonts: Cinzel & Montserrat -->
+  <!-- Production Standalone Minified CSS (Zero Render-Blocking JS) -->
+  <link rel="stylesheet" href="styles.min.css">
+
+  <!-- Non-blocking Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap">
+  </noscript>
 
   <!-- Early Theme Detection to Prevent Flicker -->
   <script>
@@ -27,353 +35,24 @@
       }
     } catch (e) {}
   </script>
-
-  <!-- Tailwind Configuration -->
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            gold: {
-              50: '#fdfbf7',
-              100: '#faf5ea',
-              200: '#f3e8cf',
-              300: '#e8d4a6',
-              400: '#d4b76e',
-              500: '#b88f3a',
-              600: '#9b7324',
-              700: '#7c5717',
-              800: '#5c3e0c',
-              900: '#3d2705',
-            },
-            royal: {
-              gold: '#966e1d',
-              dark: '#1a1815',
-              muted: '#615a4f',
-              border: '#e8dcbe',
-              surface: '#fcfbfa',
-              card: '#ffffff',
-            }
-          },
-          fontFamily: {
-            brand: ['Cinzel', 'serif'],
-            sans: ['Montserrat', 'sans-serif'],
-          },
-          boxShadow: {
-            'royal-glow': '0 0 25px -4px rgba(184, 143, 58, 0.25)',
-            'royal-card': '0 8px 30px -4px rgba(150, 110, 29, 0.08), 0 2px 10px rgba(0, 0, 0, 0.03)',
-            'royal-float': '0 14px 40px -6px rgba(150, 110, 29, 0.16), 0 4px 14px rgba(0, 0, 0, 0.04)',
-          }
-        }
-      }
-    }
-  </script>
-
-  <style>
-    /* Custom Utilities & Motion */
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-    ::selection {
-      background-color: #d4b76e;
-      color: #1a1815;
-    }
-
-    /* Pure White Luxury Background Pattern */
-    .bg-white-luxury {
-      background-color: #ffffff;
-      background-image: radial-gradient(rgba(184, 143, 58, 0.06) 1.2px, transparent 0);
-      background-size: 26px 26px;
-    }
-
-    /* Metallic Gold Text Shimmer */
-    .gold-gradient-text {
-      background: linear-gradient(135deg, #7c5717 0%, #b88f3a 50%, #966e1d 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Classic Editorial Dotted Leader Line - Thickened Royal Gold */
-    .menu-row {
-      position: relative;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .menu-leader-dots {
-      flex: 1;
-      margin: 0 0.5rem;
-      border-bottom: 2.5px dotted rgba(184, 143, 58, 0.45);
-      position: relative;
-      top: -4px;
-      transition: border-color 0.2s ease;
-    }
-
-    .menu-row:hover .menu-leader-dots {
-      border-bottom-color: rgba(184, 143, 58, 0.95);
-    }
-
-    .menu-row:hover {
-      background: #faf7ef;
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-      border-radius: 0.5rem;
-    }
-
-    /* Category Card - Thickened Royal Gold Border */
-    .category-card {
-      border: 2px solid rgba(212, 183, 110, 0.85);
-      box-shadow: 0 10px 30px -4px rgba(150, 110, 29, 0.12), 0 2px 10px rgba(0, 0, 0, 0.04);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .category-card:hover {
-      border-color: #b88f3a;
-      box-shadow: 0 16px 45px -6px rgba(150, 110, 29, 0.22), 0 6px 18px rgba(0, 0, 0, 0.06);
-    }
-
-    /* Ken Burns Subtle Slow Zoom */
-    @keyframes kenburns {
-      0% { transform: scale(1.0); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1.0); }
-    }
-
-    .animate-kenburns {
-      animation: kenburns 14s ease-in-out infinite alternate;
-    }
-
-    /* Royal Gold Header Plaque */
-    .plaque-header {
-      background: linear-gradient(135deg, #8c6414 0%, #b88f3a 50%, #754f0a 100%);
-      box-shadow: 0 3px 12px rgba(140, 100, 20, 0.25), inset 0 1px 0 rgba(255, 240, 200, 0.4);
-    }
-
-    /* Search match highlight */
-    mark.search-highlight {
-      background-color: rgba(212, 183, 110, 0.35);
-      color: #5c3e0c;
-      border-radius: 2px;
-      padding: 0 2px;
-      font-weight: 600;
-    }
-
-    /* DARK MODE LUXURY STYLING OVERRIDES */
-    html.dark {
-      color-scheme: dark;
-    }
-
-    html.dark body {
-      background-color: #0c0b09;
-      background-image: radial-gradient(rgba(212, 183, 110, 0.09) 1.2px, transparent 0);
-      background-size: 26px 26px;
-      color: #ede8df;
-    }
-
-    html.dark .bg-white-luxury {
-      background-color: #0c0b09;
-    }
-
-    html.dark header {
-      background: linear-gradient(to bottom, #191611 0%, #12100d 60%, #0c0b09 100%) !important;
-      border-color: rgba(212, 183, 110, 0.2) !important;
-    }
-
-    html.dark .tax-badge {
-      background-color: #1a1712 !important;
-      border-color: rgba(212, 183, 110, 0.4) !important;
-      color: #e5c378 !important;
-    }
-
-    html.dark .sticky-nav-bar {
-      background-color: rgba(14, 13, 10, 0.95) !important;
-      border-color: rgba(212, 183, 110, 0.2) !important;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6) !important;
-    }
-
-    html.dark #searchInput {
-      background-color: #181511 !important;
-      border-color: rgba(212, 183, 110, 0.35) !important;
-      color: #f7f4ee !important;
-    }
-
-    html.dark #searchInput::placeholder {
-      color: #857b6b !important;
-    }
-
-    html.dark #searchInput:focus {
-      border-color: #d4b76e !important;
-      box-shadow: 0 0 0 1px rgba(212, 183, 110, 0.5) !important;
-    }
-
-    html.dark .theme-btn {
-      background-color: #181511 !important;
-      border-color: rgba(212, 183, 110, 0.4) !important;
-      color: #e5c378 !important;
-    }
-
-    html.dark .theme-btn:hover {
-      background-color: #242019 !important;
-      border-color: #d4b76e !important;
-      color: #f3e8cf !important;
-    }
-
-    html.dark .category-pill-inactive {
-      background-color: #171410 !important;
-      color: #dfd8cb !important;
-      border-color: rgba(212, 183, 110, 0.3) !important;
-    }
-
-    html.dark .category-pill-inactive:hover {
-      background-color: #241f17 !important;
-      border-color: #d4b76e !important;
-      color: #f3e8cf !important;
-    }
-
-    html.dark .pill-count-badge {
-      background-color: rgba(212, 183, 110, 0.15) !important;
-      color: #e5c378 !important;
-    }
-
-    html.dark .category-card {
-      background-color: #14120e !important;
-      border-color: rgba(212, 183, 110, 0.65) !important;
-      box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.8), 0 0 20px rgba(184, 143, 58, 0.1) !important;
-    }
-
-    html.dark .category-card:hover {
-      border-color: #e5c378 !important;
-      box-shadow: 0 16px 45px -5px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 183, 110, 0.22) !important;
-    }
-
-    html.dark .category-card-right {
-      background-color: #14120e !important;
-    }
-
-    html.dark .menu-card-divider {
-      border-color: rgba(212, 183, 110, 0.25) !important;
-    }
-
-    html.dark .menu-row:hover {
-      background: rgba(212, 183, 110, 0.08) !important;
-    }
-
-    html.dark .menu-item-name {
-      color: #f2ede4 !important;
-    }
-
-    html.dark .menu-row:hover .menu-item-name {
-      color: #e5c378 !important;
-    }
-
-    html.dark .menu-item-desc {
-      color: #a49a89 !important;
-    }
-
-    html.dark .menu-leader-dots {
-      border-bottom-color: rgba(212, 183, 110, 0.3) !important;
-    }
-
-    html.dark .menu-row:hover .menu-leader-dots {
-      border-bottom-color: rgba(212, 183, 110, 0.85) !important;
-    }
-
-    html.dark .menu-item-price {
-      color: #e5c378 !important;
-    }
-
-    html.dark .item-badge {
-      background-color: rgba(184, 143, 58, 0.2) !important;
-      border-color: rgba(212, 183, 110, 0.5) !important;
-      color: #e5c378 !important;
-    }
-
-    html.dark .price-pill {
-      background-color: #1c1812 !important;
-      border-color: rgba(212, 183, 110, 0.5) !important;
-      color: #e5c378 !important;
-    }
-
-    html.dark .photo-name-badge {
-      background-color: rgba(20, 18, 14, 0.92) !important;
-      border-color: rgba(212, 183, 110, 0.55) !important;
-      color: #e5c378 !important;
-    }
-
-    html.dark footer {
-      background-color: #0c0b09 !important;
-      border-color: rgba(212, 183, 110, 0.2) !important;
-      color: #9e9381 !important;
-    }
-
-    html.dark footer p {
-      color: #8c8170 !important;
-    }
-
-    html.dark #imageModalContent {
-      background-color: #14120e !important;
-      border-color: #d4b76e !important;
-    }
-
-    html.dark #imageModalContent .modal-body {
-      background-color: #14120e !important;
-    }
-
-    html.dark #modalDesc {
-      color: #c4bbb0 !important;
-    }
-
-    html.dark #closeModalBtn {
-      background-color: rgba(24, 21, 16, 0.9) !important;
-      color: #e5c378 !important;
-    }
-
-    html.dark #closeModalBtn:hover {
-      background-color: #b88f3a !important;
-      color: #0c0b09 !important;
-    }
-
-    html.dark #backToTopBtn {
-      background-color: #181511 !important;
-      border-color: #d4b76e !important;
-      color: #e5c378 !important;
-    }
-
-    html.dark #backToTopBtn:hover {
-      background-color: #b88f3a !important;
-      color: #0c0b09 !important;
-    }
-
-    html.dark #emptyState h3 {
-      color: #f2ede4 !important;
-    }
-
-    html.dark #emptyState p {
-      color: #9e9381 !important;
-    }
-
-    html.dark #emptyState .empty-icon-box {
-      background-color: #181511 !important;
-      border-color: rgba(212, 183, 110, 0.4) !important;
-    }
-  </style>
 </head>
 <body class="bg-white-luxury text-royal-dark font-sans antialiased min-h-screen flex flex-col justify-between">
 
   <!-- PURE WHITE & ROYAL GOLD INTERACTIVE SPLASH SCREEN -->
   <div id="splashScreen" class="fixed inset-0 z-50 bg-white flex flex-col items-center justify-center p-6 transition-all duration-700 select-none shadow-2xl">
-    <!-- Ambient Golden Glow Rings -->
-    <div class="absolute w-96 h-96 rounded-full bg-gold-400/15 blur-3xl pointer-events-none animate-pulse"></div>
-    <div class="absolute -top-12 -left-12 w-72 h-72 rounded-full bg-gold-200/40 blur-2xl pointer-events-none"></div>
-
     <div class="relative z-10 flex flex-col items-center text-center max-w-sm w-full">
       <!-- Interactive Logo with Breathing & Hover Glow -->
       <div class="relative group mb-6 cursor-pointer transform hover:scale-105 transition-transform duration-500" id="splashLogoBox" title="Tap to enter immediately">
-        <div class="absolute -inset-4 rounded-full bg-gradient-to-r from-gold-300/30 via-gold-400/40 to-gold-300/30 blur-xl opacity-70 group-hover:opacity-100 transition duration-700 animate-pulse"></div>
+        <div class="logo-ambient-aura"></div>
         <img 
-          src="logo.png" 
+          src="logo.webp" 
           alt="Palacio Pyramids Hotel Logo" 
-          class="relative w-48 sm:w-56 h-auto drop-shadow-[0_10px_25px_rgba(184,143,58,0.25)] transform group-hover:rotate-1 transition duration-500"
+          class="theme-logo-light relative w-48 sm:w-56 h-auto transform group-hover:rotate-1 transition duration-500 z-10"
+        />
+        <img 
+          src="logo-dark.webp" 
+          alt="Palacio Pyramids Hotel Logo" 
+          class="theme-logo-dark relative w-48 sm:w-56 h-auto drop-shadow-[0_10px_30px_rgba(232,200,123,0.35)] transform group-hover:rotate-1 transition duration-500 z-10"
         />
       </div>
 
@@ -407,19 +86,25 @@
   </div>
 
   <!-- PURE WHITE & GOLD HEADER HERO -->
-  <header class="relative pt-10 pb-8 text-center border-b border-royal-border bg-gradient-to-b from-gold-50 via-white to-white overflow-hidden shadow-sm">
-    <!-- Ambient Gold Rays -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-gold-200/30 blur-3xl pointer-events-none rounded-full"></div>
-    <div class="absolute -top-10 left-10 w-44 h-44 bg-gold-300/20 blur-2xl pointer-events-none rounded-full"></div>
+  <header class="relative pt-12 pb-8 text-center border-b border-royal-border bg-gradient-to-b from-[#faf1dd] via-[#fdfbf6] to-white overflow-hidden shadow-sm">
+    <!-- Ambient Gold Sunburst & Rays -->
+    <div class="header-gold-sunburst"></div>
+    <div class="absolute -top-10 left-10 w-60 h-60 bg-amber-300/30 blur-3xl pointer-events-none rounded-full"></div>
+    <div class="absolute -top-10 right-10 w-60 h-60 bg-amber-300/30 blur-3xl pointer-events-none rounded-full"></div>
 
     <div class="max-w-2xl mx-auto px-4 relative z-10 flex flex-col items-center">
       <!-- PALACIO PYRAMIDS OFFICIAL LOGO -->
       <div class="relative group mb-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-gold-400/20 via-gold-300/30 to-gold-400/20 opacity-30 blur-md group-hover:opacity-70 transition duration-500"></div>
+        <div class="logo-ambient-aura"></div>
         <img 
-          src="logo.png" 
+          src="logo.webp" 
           alt="Palacio Pyramids Hotel Logo" 
-          class="relative w-40 sm:w-48 h-auto drop-shadow-[0_8px_20px_rgba(150,110,29,0.18)] transform hover:scale-105 transition-transform duration-300"
+          class="theme-logo-light relative w-40 sm:w-48 h-auto transform hover:scale-105 transition-transform duration-300 z-10"
+        />
+        <img 
+          src="logo-dark.webp" 
+          alt="Palacio Pyramids Hotel Logo" 
+          class="theme-logo-dark relative w-40 sm:w-48 h-auto drop-shadow-[0_8px_25px_rgba(232,200,123,0.3)] transform hover:scale-105 transition-transform duration-300 z-10"
         />
       </div>
 
@@ -561,11 +246,16 @@
     <div class="max-w-md mx-auto space-y-4">
       <!-- Official Palacio Logo (Same as Header Logo) -->
       <div class="relative group mx-auto cursor-pointer inline-block" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Palacio Pyramids Hotel - Back to top">
-        <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-gold-400/20 via-gold-300/30 to-gold-400/20 opacity-30 blur-md group-hover:opacity-75 transition duration-500"></div>
+        <div class="logo-ambient-aura"></div>
         <img 
-          src="logo.png" 
+          src="logo.webp" 
           alt="Palacio Pyramids Hotel Logo" 
-          class="relative w-36 sm:w-44 h-auto mx-auto drop-shadow-[0_6px_18px_rgba(150,110,29,0.2)] transform hover:scale-105 transition-transform duration-300"
+          class="theme-logo-light relative w-36 sm:w-44 h-auto mx-auto transform hover:scale-105 transition-transform duration-300 z-10"
+        />
+        <img 
+          src="logo-dark.webp" 
+          alt="Palacio Pyramids Hotel Logo" 
+          class="theme-logo-dark relative w-36 sm:w-44 h-auto mx-auto drop-shadow-[0_6px_22px_rgba(232,200,123,0.3)] transform hover:scale-105 transition-transform duration-300 z-10"
         />
       </div>
       <h4 class="font-brand text-sm tracking-[0.25em] text-royal-gold uppercase font-bold">
@@ -593,16 +283,16 @@
         name: "Soups",
         icon: "🍲",
         page: "Page 2",
-        image: "images/categories/soups.jpg",
+        image: "images/categories/soups.webp",
         type: "single",
         items: [
-          { name: "Orzo Soup", price: "150" },
-          { name: "Lentil Soup", price: "150" },
-          { name: "Mushroom Soup", price: "150" },
-          { name: "Broccoli Soup", price: "150" },
-          { name: "Soup", price: "150" },
-          { name: "Seafood Soup", price: "250", badge: "Chef Recommends" },
-          { name: "Creamy Chicken Soup", price: "200" }
+          { name: "Orzo Soup", price: "200" },
+          { name: "Lentil Soup", price: "200" },
+          { name: "Mushroom Soup", price: "250" },
+          { name: "Broccoli Soup", price: "200" },
+          { name: "Soup", price: "200" },
+          { name: "Seafood Soup", price: "350", badge: "Chef Recommends" },
+          { name: "Creamy Chicken Soup", price: "250" }
         ]
       },
       {
@@ -610,16 +300,16 @@
         name: "Appetizers",
         icon: "🥟",
         page: "Page 3",
-        image: "images/categories/appetizers.jpg",
+        image: "images/categories/appetizers.webp",
         type: "single",
         items: [
-          { name: "Kibbeh", price: "200" },
-          { name: "Cheese Sambousek", price: "150" },
-          { name: "Meat Sambousek", price: "200" },
-          { name: "Spring Roll", price: "150" },
-          { name: "Stuffed Grape Leaves Rolls", price: "150" },
-          { name: "French Fries", price: "150" },
-          { name: "Chicken Wings", price: "150" }
+          { name: "Kibbeh", price: "300" },
+          { name: "Cheese Sambousek", price: "200" },
+          { name: "Meat Sambousek", price: "250" },
+          { name: "Spring Roll", price: "200" },
+          { name: "Stuffed Grape Leaves Rolls", price: "200" },
+          { name: "French Fries", price: "200" },
+          { name: "Chicken Wings", price: "250" }
         ]
       },
       {
@@ -627,18 +317,18 @@
         name: "Salads",
         icon: "🥗",
         page: "Page 4",
-        image: "images/categories/salads.jpg",
+        image: "images/categories/salads.webp",
         type: "single",
         items: [
-          { name: "Caprese Salad", price: "250" },
-          { name: "Hummus Salad", price: "100" },
-          { name: "Caesar Salad", price: "150" },
-          { name: "Greek Salad", price: "100" },
-          { name: "Fattoush Salad", price: "100" },
-          { name: "Kloslaw Salad", price: "75" },
-          { name: "Tahini Salad", price: "50" },
-          { name: "Baba Ghanoush", price: "50" },
-          { name: "Yogurt Salad", price: "75" }
+          { name: "Caprese Salad", price: "270" },
+          { name: "Hummus Salad", price: "150" },
+          { name: "Caesar Salad", price: "210" },
+          { name: "Greek Salad", price: "150" },
+          { name: "Fattoush Salad", price: "250" },
+          { name: "Kloslaw Salad", price: "100" },
+          { name: "Tahini Salad", price: "75" },
+          { name: "Baba Ghanoush", price: "75" },
+          { name: "Yogurt Salad", price: "120" }
         ]
       },
       {
@@ -646,14 +336,14 @@
         name: "Sandwiches",
         icon: "🥪",
         page: "Page 5",
-        image: "images/categories/sandwiches.jpg",
+        image: "images/categories/sandwiches.webp",
         type: "single",
         items: [
-          { name: "Cheddar Sandwich", price: "150" },
-          { name: "Burger Sandwich", price: "435", badge: "Signature" },
-          { name: "Chicken Fajita Sandwich", price: "260" },
-          { name: "Club Sandwich", price: "200" },
-          { name: "Chicken Pane Sandwich", price: "200" }
+          { name: "Cheddar Sandwich", price: "275" },
+          { name: "Burger Sandwich", price: "700", badge: "Signature" },
+          { name: "Chicken Fajita Sandwich", price: "370" },
+          { name: "Club Sandwich", price: "300" },
+          { name: "Chicken Pane Sandwich", price: "330" }
         ]
       },
       {
@@ -661,12 +351,12 @@
         name: "Sea Food",
         icon: "🦐",
         page: "Page 5",
-        image: "images/categories/seafood.jpg",
+        image: "images/categories/seafood.webp",
         type: "single",
         items: [
-          { name: "Mixed Seafood", price: "900", badge: "House Specialty" },
-          { name: "Grilled Salmon Fillet", price: "950" },
-          { name: "Jumbo Shrimp", price: "1000", badge: "Premium" }
+          { name: "Mixed Seafood", price: "1550", badge: "House Specialty" },
+          { name: "Grilled Salmon Fillet", price: "1500" },
+          { name: "Jumbo Shrimp", price: "1600", badge: "Premium" }
         ]
       },
       {
@@ -674,15 +364,15 @@
         name: "Casserole (طواجن)",
         icon: "🥘",
         page: "Page 6",
-        image: "images/categories/casseroles.jpg",
+        image: "images/categories/casseroles.webp",
         type: "single",
         items: [
-          { name: "Orzo Casserole", price: "350" },
-          { name: "Okra with Meat Casserole", price: "600" },
-          { name: "Veal & Potato Casserole", price: "580" },
-          { name: "Molokhia with Chicken Casserole", price: "290", badge: "Traditional" },
-          { name: "Oxtail with Onion Casserole", price: "650" },
-          { name: "Stuffed Grape Leaves with Trotters Casserole", price: "650", badge: "Specialty" }
+          { name: "Orzo Casserole", price: "550" },
+          { name: "Okra with Meat Casserole", price: "950" },
+          { name: "Veal & Potato Casserole", price: "800" },
+          { name: "Molokhia with Chicken Casserole", price: "550", badge: "Traditional" },
+          { name: "Oxtail with Onion Casserole", price: "950" },
+          { name: "Stuffed Grape Leaves with Trotters Casserole", price: "840", badge: "Specialty" }
         ]
       },
       {
@@ -690,17 +380,17 @@
         name: "Pasta",
         icon: "🍝",
         page: "Page 6",
-        image: "images/categories/pasta.jpg",
+        image: "images/categories/pasta.webp",
         type: "single",
         items: [
-          { name: "Spaghetti Bolognese", price: "320" },
-          { name: "Penne Arrabbiata", price: "350" },
-          { name: "Pesto Pasta", price: "250" },
-          { name: "Mac & Cheese Pasta", price: "350" },
-          { name: "Lasagna", price: "350" },
-          { name: "Baked Pasta with Bechamel", price: "350" },
-          { name: "Koshari", price: "150", badge: "Egyptian Classic" },
-          { name: "Pasta Red Sauce", price: "100" }
+          { name: "Spaghetti Bolognese", price: "540" },
+          { name: "Penne Arrabbiata", price: "250" },
+          { name: "Pesto Pasta", price: "400" },
+          { name: "Mac & Cheese Pasta", price: "500" },
+          { name: "Lasagna", price: "450" },
+          { name: "Baked Pasta with Bechamel", price: "550" },
+          { name: "Koshari", price: "250", badge: "Egyptian Classic" },
+          { name: "Pasta Red Sauce", price: "150" }
         ]
       },
       {
@@ -708,22 +398,28 @@
         name: "Main Dishes",
         icon: "🥩",
         page: "Page 7",
-        image: "images/categories/main-dishes.jpg",
+        image: "images/categories/main-dishes.webp",
         note: "Served with rice and sautéed vegetables or fries",
         type: "single",
         items: [
-          { name: "Chicken Basilico", price: "450" },
-          { name: "Chicken Toscana", price: "600" },
-          { name: "Chicken Curry", price: "550" },
-          { name: "Chicken Supreme", price: "450" },
-          { name: "Beef Fillet", price: "850", badge: "Chef's Cut" },
-          { name: "Piccata with Mushroom Sauce", price: "450" },
-          { name: "Fish Florentine", price: "900" },
-          { name: "Fish with Lemon Butter", price: "800" },
-          { name: "Chicken Pane", price: "450" },
-          { name: "Boneless Fried Chicken", price: "520" },
-          { name: "Mixed Grill", price: "700", badge: "House Special" },
-          { name: "Lamb Shank Fattah", price: "545", badge: "Signature" }
+          { name: "Chicken Basilico", price: "620" },
+          { name: "Chicken Toscana", price: "960" },
+          { name: "Chicken Curry", price: "670" },
+          { name: "Chicken Supreme", price: "530" },
+          { name: "Beef Fillet", price: "1200", badge: "Chef's Cut" },
+          { name: "Piccata with Mushroom Sauce", price: "720" },
+          { name: "Fish Florentine", price: "1550" },
+          { name: "Fish with Lemon Butter", price: "1060" },
+          { name: "Chicken Pane", price: "540" },
+          { name: "Boneless Fried Chicken", price: "920" },
+          { name: "Mixed Grill", price: "1200", badge: "House Special" },
+          { name: "Lamb Shank Fattah", price: "870", badge: "Signature" },
+          { name: "Kabab", price: "750" },
+          { name: "Kofta", price: "500" },
+          { name: "Pigeans", price: "700" },
+          { name: "Bolongese chicken Breast", price: "425" },
+          { name: "Ribs", price: "1000" },
+          { name: "Hawashi", price: "500" }
         ]
       },
       {
@@ -731,17 +427,17 @@
         name: "Desserts",
         icon: "🍰",
         page: "Page 8",
-        image: "images/categories/desserts.jpg",
+        image: "images/categories/desserts.webp",
         type: "single",
         items: [
-          { name: "Umm Ali", price: "200", badge: "Signature" },
-          { name: "Crème Caramel", price: "150" },
-          { name: "Oriental Sweets", price: "200" },
-          { name: "Rice Pudding", price: "150" },
-          { name: "Cupcakes", price: "250" },
-          { name: "Gateau", price: "150" },
-          { name: "2 Pot Ice Cream", price: "150" },
-          { name: "Konafa", price: "150" }
+          { name: "Umm Ali", price: "250", badge: "Signature" },
+          { name: "Crème Caramel", price: "200" },
+          { name: "Oriental Sweets", price: "300" },
+          { name: "Rice Pudding", price: "200" },
+          { name: "Cupcakes", price: "350" },
+          { name: "Gateau", price: "200" },
+          { name: "2 Pot Ice Cream", price: "200" },
+          { name: "Konafa", price: "200" }
         ]
       },
       {
@@ -749,22 +445,22 @@
         name: "Herbs & Warm Infusions",
         icon: "🫖",
         page: "Page 9",
-        image: "images/categories/herbs.jpg",
+        image: "images/categories/herbs.webp",
         type: "herbs-combo",
         items: [
-          { name: "Red Tea", price: "75" },
-          { name: "Green Tea", price: "75" },
-          { name: "Earl Grey Tea (Fruity Flavor)", price: "150" },
-          { name: "Anise", price: "75" },
-          { name: "Ginger", price: "75" },
-          { name: "Cinnamon", price: "75" },
-          { name: "Mint", price: "75" },
-          { name: "Apple Cider Tea", price: "100" },
-          { name: "Tea with Milk", price: "100" }
+          { name: "Red Tea", price: "120" },
+          { name: "Green Tea", price: "120" },
+          { name: "Earl Grey Tea (Fruity Flavor)", price: "240" },
+          { name: "Anise", price: "120" },
+          { name: "Ginger", price: "120" },
+          { name: "Cinnamon", price: "120" },
+          { name: "Mint", price: "120" },
+          { name: "Apple Cider Tea", price: "180" },
+          { name: "Tea with Milk", price: "180" }
         ],
         multiItems: [
-          { name: "Hot Chocolate", priceS: "100", priceM: "150" },
-          { name: "Sahlab with Nuts", priceS: "150", priceM: "200" }
+          { name: "Hot Chocolate", priceS: "250", priceM: "300" },
+          { name: "Sahlab with Nuts", priceS: "250", priceM: "300" }
         ]
       },
       {
@@ -772,18 +468,18 @@
         name: "Extra",
         icon: "✨",
         page: "Page 9",
-        image: "images/categories/extras.jpg",
+        image: "images/categories/Extra items.webp",
         type: "single",
         items: [
-          { name: "Espresso Shot", price: "100" },
-          { name: "Whipped Cream", price: "50" },
-          { name: "Flavor Syrup", price: "50" },
-          { name: "Plant-based Milk", price: "100" },
-          { name: "Caramel & Chocolate Sauce", price: "50" },
-          { name: "Lotus & Nutella Sauce", price: "100" },
-          { name: "Regular Milk", price: "50" },
-          { name: "Vanilla or Chocolate Ice Cream", price: "100" },
-          { name: "Honey", price: "50" }
+          { name: "Espresso Shot", price: "180" },
+          { name: "Whipped Cream", price: "120" },
+          { name: "Flavor Syrup", price: "120" },
+          { name: "Plant-based Milk", price: "180" },
+          { name: "Caramel & Chocolate Sauce", price: "120" },
+          { name: "Lotus & Nutella Sauce", price: "180" },
+          { name: "Regular Milk", price: "120" },
+          { name: "Vanilla or Chocolate Ice Cream", price: "180" },
+          { name: "Honey", price: "120" }
         ]
       },
       {
@@ -791,20 +487,20 @@
         name: "Hot Coffee",
         icon: "☕",
         page: "Page 10",
-        image: "images/categories/hot-coffee.jpg",
+        image: "images/categories/hot-coffee.webp",
         type: "multi-sd",
         items: [
-          { name: "Turkish Coffee", s: "100", d: "150" },
-          { name: "Espresso", s: "100", d: "150" },
-          { name: "Cortado", s: "200", d: "250" },
-          { name: "Latte", singlePrice: "200" },
-          { name: "Spanish Latte", singlePrice: "200" },
-          { name: "Cappuccino", singlePrice: "200" },
-          { name: "Mocha Dark", singlePrice: "200" },
-          { name: "Americano", s: "150", d: "200" },
-          { name: "Coffee with Honey", singlePrice: "150" },
-          { name: "Turkish Cappuccino", singlePrice: "200" },
-          { name: "Flat White", singlePrice: "250" }
+          { name: "Turkish Coffee", s: "180", d: "300" },
+          { name: "Espresso", s: "180", d: "300" },
+          { name: "Cortado", s: "240", d: "360" },
+          { name: "Latte", singlePrice: "240" },
+          { name: "Spanish Latte", singlePrice: "240" },
+          { name: "Cappuccino", singlePrice: "240" },
+          { name: "Mocha Dark", singlePrice: "240" },
+          { name: "Americano", s: "180", d: "300" },
+          { name: "Coffee with Honey", singlePrice: "180" },
+          { name: "Turkish Cappuccino", singlePrice: "180" },
+          { name: "Flat White", singlePrice: "300" }
         ]
       },
       {
@@ -812,14 +508,14 @@
         name: "Frappé (Blended Drinks)",
         icon: "🧋",
         page: "Page 11",
-        image: "images/categories/frappe-blended.jpg",
+        image: "images/categories/frappe-blended.webp",
         type: "multi-sm",
         items: [
-          { name: "Latte Frappé", s: "150", m: "200" },
-          { name: "Toffee Frappé", s: "200", m: "250" },
-          { name: "Mocha Frappé", s: "150", m: "200" },
-          { name: "Chocolate Cookies", s: "200", m: "250" },
-          { name: "Lotus Latte Frappé", s: "200", m: "250" }
+          { name: "Latte Frappé", s: "240", m: "360" },
+          { name: "Toffee Frappé", s: "240", m: "360" },
+          { name: "Mocha Frappé", s: "240", m: "360" },
+          { name: "Chocolate Cookies", s: "240", m: "360" },
+          { name: "Lotus Latte Frappé", s: "240", m: "360" }
         ]
       },
       {
@@ -827,12 +523,12 @@
         name: "Frappé Free Caffeine",
         icon: "🥤",
         page: "Page 11",
-        image: "images/categories/frappe-caffeine-free.jpg",
+        image: "images/categories/frappe-caffeine-free.webp",
         type: "multi-sm",
         items: [
-          { name: "Vanilla Frappé", s: "100", m: "150" },
-          { name: "Strawberry Vanilla Frappé", s: "200", m: "250" },
-          { name: "Lotus Vanilla Frappé", s: "200", m: "250" }
+          { name: "Vanilla Frappé", s: "120", m: "240" },
+          { name: "Strawberry Vanilla Frappé", s: "180", m: "300" },
+          { name: "Lotus Vanilla Frappé", s: "180", m: "300" }
         ]
       },
       {
@@ -840,12 +536,12 @@
         name: "Ice Shakes",
         icon: "🥛",
         page: "Page 11",
-        image: "images/categories/ice-shakes.jpg",
+        image: "images/categories/ice-shakes.webp",
         type: "single",
         items: [
-          { name: "Oreo Shake", price: "200" },
-          { name: "Snickers Shake", price: "200" },
-          { name: "Maltesers Shake", price: "250" }
+          { name: "Oreo Shake", price: "240" },
+          { name: "Snickers Shake", price: "240" },
+          { name: "Maltesers Shake", price: "300" }
         ]
       },
       {
@@ -853,18 +549,18 @@
         name: "Soft Drinks & Beverages",
         icon: "🧊",
         page: "Page 12",
-        image: "images/categories/soft-drinks.jpg",
+        image: "images/categories/soft-drinks.webp",
         type: "single",
         items: [
-          { name: "Monster Flavors", price: "150" },
-          { name: "Pepsi", price: "75" },
-          { name: "7UP", price: "75" },
-          { name: "Water", price: "35" },
-          { name: "Sparkling Water", price: "150" },
-          { name: "Schweppes", desc: "(Peach • Pineapple • Pomegranate • Lemon Mint)", price: "75" },
-          { name: "Birell", price: "100" },
-          { name: "Twist", price: "75" },
-          { name: "Redbull Flavors", price: "150" }
+          { name: "Monster Flavors", price: "240" },
+          { name: "Pepsi", price: "180" },
+          { name: "7UP", price: "180" },
+          { name: "Water", price: "120" },
+          { name: "Sparkling Water", price: "240" },
+          { name: "Schweppes", desc: "(Peach • Pineapple • Pomegranate • Lemon Mint)", price: "180" },
+          { name: "Birell", price: "240" },
+          { name: "Twist", price: "180" },
+          { name: "Redbull Flavors", price: "300" }
         ]
       },
       {
@@ -872,15 +568,15 @@
         name: "Iced Coffee",
         icon: "🧋",
         page: "Page 12",
-        image: "images/categories/iced-coffee.jpg",
+        image: "images/categories/iced-coffee.webp",
         type: "single",
         items: [
-          { name: "Iced Latte", price: "200" },
-          { name: "Iced Americano", price: "200" },
-          { name: "Iced Mocha", price: "200" },
-          { name: "Iced Cappuccino", price: "200" },
-          { name: "Iced Caramel Macchiato", price: "200" },
-          { name: "Iced Spanish Latte", price: "200" }
+          { name: "Iced Latte", price: "300" },
+          { name: "Iced Americano", price: "300" },
+          { name: "Iced Mocha", price: "300" },
+          { name: "Iced Cappuccino", price: "300" },
+          { name: "Iced Caramel Macchiato", price: "300" },
+          { name: "Iced Spanish Latte", price: "300" }
         ]
       },
       {
@@ -888,23 +584,23 @@
         name: "Florida (Mocktails & Signatures)",
         icon: "🍹",
         page: "Page 13",
-        image: "images/categories/florida.jpg",
+        image: "images/categories/florida.webp",
         type: "single",
         items: [
-          { name: "Palacio Cocktail", desc: "(Mango • Strawberry • Banana)", price: "200", badge: "Signature" },
-          { name: "Mango Mint", price: "200" },
-          { name: "Guava Mint", price: "200" },
-          { name: "Orange with Ginger", price: "200" },
-          { name: "Kiwi Lemon Mint", desc: "(Shiraz Flavor)", price: "200" },
-          { name: "Pink Lemonade", price: "200" },
-          { name: "Mojito Ice Refresher", price: "200" },
-          { name: "Blueberry Red Bull with 7UP", price: "250" },
-          { name: "Strawberry Red Bull with 7UP", price: "250" },
-          { name: "Passion Fruit Red Bull with 7UP", price: "250" },
-          { name: "Raspberry Red Bull with 7UP", price: "250" },
-          { name: "Blue Curaçao", price: "200" },
-          { name: "Peach Iced Tea", price: "150" },
-          { name: "Raspberry Iced Tea", price: "150" }
+          { name: "Palacio Cocktail", desc: "(Mango • Strawberry • Banana)", price: "300", badge: "Signature" },
+          { name: "Mango Mint", price: "300" },
+          { name: "Guava Mint", price: "300" },
+          { name: "Orange with Ginger", price: "300" },
+          { name: "Kiwi Lemon Mint", desc: "(Shiraz Flavor)", price: "300" },
+          { name: "Pink Lemonade", price: "300" },
+          { name: "Mojito Ice Refresher", price: "300" },
+          { name: "Blueberry Red Bull with 7UP", price: "360" },
+          { name: "Strawberry Red Bull with 7UP", price: "360" },
+          { name: "Passion Fruit Red Bull with 7UP", price: "360" },
+          { name: "Raspberry Red Bull with 7UP", price: "360" },
+          { name: "Blue Curaçao", price: "300" },
+          { name: "Peach Iced Tea", price: "240" },
+          { name: "Raspberry Iced Tea", price: "240" }
         ]
       },
       {
@@ -912,18 +608,18 @@
         name: "Smoothies",
         icon: "🍓",
         page: "Page 14",
-        image: "images/categories/smoothies.jpg",
+        image: "images/categories/smoothies.webp",
         type: "single",
         items: [
-          { name: "Mango Smoothie", price: "120" },
-          { name: "Guava Smoothie", price: "120" },
-          { name: "Strawberry Smoothie", price: "120" },
-          { name: "Orange Smoothie", price: "120" },
-          { name: "Banana Milk Smoothie", price: "120" },
-          { name: "Kiwi Smoothie", price: "120" },
-          { name: "Pineapple Smoothie", price: "120" },
-          { name: "Peach Smoothie", price: "120" },
-          { name: "Lemon Mint Smoothie", price: "120" }
+          { name: "Mango Smoothie", price: "180" },
+          { name: "Guava Smoothie", price: "180" },
+          { name: "Strawberry Smoothie", price: "180" },
+          { name: "Orange Smoothie", price: "180" },
+          { name: "Banana Milk Smoothie", price: "180" },
+          { name: "Kiwi Smoothie", price: "180" },
+          { name: "Pineapple Smoothie", price: "180" },
+          { name: "Peach Smoothie", price: "180" },
+          { name: "Lemon Mint Smoothie", price: "180" }
         ]
       },
       {
@@ -931,19 +627,19 @@
         name: "Fresh Juice",
         icon: "🍊",
         page: "Page 15",
-        image: "images/categories/fresh-juice.jpg",
+        image: "images/categories/fresh-juice.webp",
         type: "single",
         items: [
-          { name: "Mango", price: "150" },
-          { name: "Guava", price: "150" },
-          { name: "Strawberry", price: "150" },
-          { name: "Orange", price: "150" },
-          { name: "Lemon Mint", price: "120" },
-          { name: "Banana Milk", price: "150" },
-          { name: "Avocado", price: "200" },
-          { name: "Kiwi", price: "200" },
-          { name: "Pineapple", price: "200" },
-          { name: "Peach", price: "200" }
+          { name: "Mango", price: "240" },
+          { name: "Guava", price: "240" },
+          { name: "Strawberry", price: "240" },
+          { name: "Orange", price: "240" },
+          { name: "Lemon Mint", price: "240" },
+          { name: "Banana Milk", price: "240" },
+          { name: "Avocado", price: "240" },
+          { name: "Kiwi", price: "240" },
+          { name: "Pineapple", price: "240" },
+          { name: "Peach", price: "240" }
         ]
       }
     ];
@@ -1037,7 +733,7 @@
                 ? 'bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 text-white font-bold border-gold-600 shadow-md shadow-gold-500/25' 
                 : 'category-pill-inactive bg-[#fbf9f4] text-royal-dark border-gold-300/70 hover:border-royal-gold hover:text-royal-gold hover:bg-gold-50'
             }">
-            <img src="${cat.image}" alt="" class="w-4 h-4 rounded-full object-cover border ${isActive ? 'border-white' : 'border-gold-400/50'}" />
+            <img src="${cat.image}" alt="" width="16" height="16" loading="lazy" decoding="async" class="w-4 h-4 rounded-full object-cover border ${isActive ? 'border-white' : 'border-gold-400/50'}" />
             <span>${cat.name}</span>
             <span class="pill-count-badge text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-white/25 text-white font-bold' : 'bg-gold-100 text-royal-gold'}">${cat.items ? cat.items.length : ''}</span>
           </button>
@@ -1185,7 +881,9 @@
 
       emptyState.classList.add("hidden");
 
-      menuContainer.innerHTML = data.map(category => `
+      menuContainer.innerHTML = data.map((category, index) => {
+        const isFirst = index === 0;
+        return `
         <section id="${category.id}" class="scroll-mt-36">
           
           <!-- Editorial Spread Card with Thickened Royal Gold Border -->
@@ -1193,12 +891,16 @@
             <div class="grid grid-cols-1 lg:grid-cols-12">
               
               <!-- LEFT COLUMN: Photographic Hero with Ken Burns Motion -->
-              <div class="lg:col-span-5 relative h-64 sm:h-80 lg:h-auto min-h-[260px] overflow-hidden group cursor-pointer border-b-2 lg:border-b-0 lg:border-r-2 border-gold-300/70 menu-card-divider"
+              <div class="lg:col-span-5 relative h-64 sm:h-80 lg:h-auto min-h-[260px] hero-img-container overflow-hidden group cursor-pointer border-b-2 lg:border-b-0 lg:border-r-2 border-gold-300/70 menu-card-divider"
                    onclick="openModal('${category.image}', '${category.name}', '${category.note || ''}')">
                 <img 
                   src="${category.image}" 
                   alt="${category.name} - Palacio Pyramids Hotel" 
-                  loading="lazy"
+                  width="800"
+                  height="500"
+                  loading="${isFirst ? 'eager' : 'lazy'}"
+                  fetchpriority="${isFirst ? 'high' : 'auto'}"
+                  decoding="${isFirst ? 'sync' : 'async'}"
                   class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 animate-kenburns"
                 />
                 <!-- Overlays & Badges (Category Name without any page number) -->
@@ -1297,7 +999,8 @@
             </div>
           </div>
         </section>
-      `).join('');
+      `
+      }).join('');
     }
 
     /**

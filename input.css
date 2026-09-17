@@ -1,0 +1,371 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Utilities & Motion */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+::selection {
+  background-color: #d4b76e;
+  color: #1a1815;
+}
+
+/* Pure White Luxury Background Pattern */
+.bg-white-luxury {
+  background-color: #ffffff;
+  background-image: radial-gradient(rgba(184, 143, 58, 0.06) 1.2px, transparent 0);
+  background-size: 26px 26px;
+}
+
+/* Metallic Gold Text Shimmer */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #7c5717 0%, #b88f3a 50%, #966e1d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Classic Editorial Dotted Leader Line - Thickened Royal Gold */
+.menu-row {
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-leader-dots {
+  flex: 1;
+  margin: 0 0.5rem;
+  border-bottom: 2.5px dotted rgba(184, 143, 58, 0.45);
+  position: relative;
+  top: -4px;
+  transition: border-color 0.2s ease;
+}
+
+.menu-row:hover .menu-leader-dots {
+  border-bottom-color: rgba(184, 143, 58, 0.95);
+}
+
+.menu-row:hover {
+  background: #faf7ef;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+/* Category Card - Thickened Royal Gold Border & Aspect Ratio */
+.category-card {
+  border: 2px solid rgba(212, 183, 110, 0.85);
+  box-shadow: 0 10px 30px -4px rgba(150, 110, 29, 0.12), 0 2px 10px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.category-card:hover {
+  border-color: #b88f3a;
+  box-shadow: 0 16px 45px -6px rgba(150, 110, 29, 0.22), 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+.hero-img-container {
+  aspect-ratio: 16 / 10;
+}
+@media (min-width: 1024px) {
+  .hero-img-container {
+    aspect-ratio: auto;
+    height: 100%;
+  }
+}
+
+/* Ken Burns Subtle Slow Zoom */
+@keyframes kenburns {
+  0% { transform: scale(1.0); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1.0); }
+}
+
+.animate-kenburns {
+  animation: kenburns 14s ease-in-out infinite alternate;
+}
+
+/* Royal Gold Header Plaque */
+.plaque-header {
+  background: linear-gradient(135deg, #8c6414 0%, #b88f3a 50%, #754f0a 100%);
+  box-shadow: 0 3px 12px rgba(140, 100, 20, 0.25), inset 0 1px 0 rgba(255, 240, 200, 0.4);
+}
+
+/* Search match highlight */
+mark.search-highlight {
+  background-color: rgba(212, 183, 110, 0.35);
+  color: #5c3e0c;
+  border-radius: 2px;
+  padding: 0 2px;
+  font-weight: 600;
+}
+
+/* LOGO THEME SWITCHING (LIGHT VS DARK ROYAL GOLD) */
+.theme-logo-dark {
+  display: none !important;
+}
+html.dark .theme-logo-light {
+  display: none !important;
+}
+html.dark .theme-logo-dark {
+  display: inline-block !important;
+  filter: drop-shadow(0 4px 22px rgba(212, 183, 110, 0.35));
+}
+
+/* VIBRANT ROYAL GOLDEN GLOW & SUNBURST AROUND LOGO (LIGHT & DARK) */
+.header-gold-sunburst {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 640px;
+  height: 320px;
+  background: radial-gradient(ellipse at 50% 30%, rgba(245, 197, 66, 0.45) 0%, rgba(234, 179, 8, 0.3) 35%, rgba(217, 149, 12, 0.12) 65%, transparent 80%);
+  filter: blur(35px);
+  pointer-events: none;
+  z-index: 1;
+}
+html.dark .header-gold-sunburst {
+  background: radial-gradient(ellipse at 50% 30%, rgba(212, 183, 110, 0.3) 0%, rgba(184, 143, 58, 0.16) 45%, transparent 80%);
+  filter: blur(45px);
+}
+
+.logo-ambient-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 155%;
+  height: 155%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 197, 66, 0.55) 0%, rgba(234, 179, 8, 0.38) 40%, rgba(217, 149, 12, 0.15) 65%, transparent 80%);
+  filter: blur(22px);
+  pointer-events: none;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+.group:hover .logo-ambient-aura {
+  transform: translate(-50%, -50%) scale(1.18);
+  background: radial-gradient(circle, rgba(245, 197, 66, 0.75) 0%, rgba(234, 179, 8, 0.48) 45%, rgba(217, 149, 12, 0.22) 70%, transparent 85%);
+  filter: blur(26px);
+}
+html.dark .logo-ambient-aura {
+  background: radial-gradient(circle, rgba(232, 200, 123, 0.35) 0%, rgba(184, 143, 58, 0.2) 45%, transparent 75%);
+}
+html.dark .group:hover .logo-ambient-aura {
+  background: radial-gradient(circle, rgba(232, 200, 123, 0.5) 0%, rgba(184, 143, 58, 0.28) 50%, transparent 80%);
+}
+
+/* THEME LOGO FILTER IN LIGHT MODE WITH VIBRANT WARMTH */
+.theme-logo-light {
+  filter: drop-shadow(0 0 18px rgba(245, 197, 66, 0.5)) drop-shadow(0 8px 24px rgba(184, 143, 58, 0.28));
+}
+
+/* DARK MODE LUXURY STYLING OVERRIDES */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark #splashScreen {
+  background-color: #0c0b09 !important;
+  background-image: radial-gradient(rgba(212, 183, 110, 0.12) 1.2px, transparent 0) !important;
+  background-size: 26px 26px !important;
+}
+
+html.dark #splashProgressBarContainer > div {
+  background-color: #1a1712 !important;
+  border-color: rgba(212, 183, 110, 0.4) !important;
+}
+
+html.dark body {
+  background-color: #0c0b09;
+  background-image: radial-gradient(rgba(212, 183, 110, 0.09) 1.2px, transparent 0);
+  background-size: 26px 26px;
+  color: #ede8df;
+}
+
+html.dark .bg-white-luxury {
+  background-color: #0c0b09;
+}
+
+html.dark header {
+  background: linear-gradient(to bottom, #191611 0%, #12100d 60%, #0c0b09 100%) !important;
+  border-color: rgba(212, 183, 110, 0.2) !important;
+}
+
+html.dark .tax-badge {
+  background-color: #1a1712 !important;
+  border-color: rgba(212, 183, 110, 0.4) !important;
+  color: #e5c378 !important;
+}
+
+html.dark .sticky-nav-bar {
+  background-color: rgba(14, 13, 10, 0.95) !important;
+  border-color: rgba(212, 183, 110, 0.2) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.dark #searchInput {
+  background-color: #181511 !important;
+  border-color: rgba(212, 183, 110, 0.35) !important;
+  color: #f7f4ee !important;
+}
+
+html.dark #searchInput::placeholder {
+  color: #857b6b !important;
+}
+
+html.dark #searchInput:focus {
+  border-color: #d4b76e !important;
+  box-shadow: 0 0 0 1px rgba(212, 183, 110, 0.5) !important;
+}
+
+html.dark .theme-btn {
+  background-color: #181511 !important;
+  border-color: rgba(212, 183, 110, 0.4) !important;
+  color: #e5c378 !important;
+}
+
+html.dark .theme-btn:hover {
+  background-color: #242019 !important;
+  border-color: #d4b76e !important;
+  color: #f3e8cf !important;
+}
+
+html.dark .category-pill-inactive {
+  background-color: #171410 !important;
+  color: #dfd8cb !important;
+  border-color: rgba(212, 183, 110, 0.3) !important;
+}
+
+html.dark .category-pill-inactive:hover {
+  background-color: #241f17 !important;
+  border-color: #d4b76e !important;
+  color: #f3e8cf !important;
+}
+
+html.dark .pill-count-badge {
+  background-color: rgba(212, 183, 110, 0.15) !important;
+  color: #e5c378 !important;
+}
+
+html.dark .category-card {
+  background-color: #14120e !important;
+  border-color: rgba(212, 183, 110, 0.65) !important;
+  box-shadow: 0 12px 35px -5px rgba(0, 0, 0, 0.8), 0 0 20px rgba(184, 143, 58, 0.1) !important;
+}
+
+html.dark .category-card:hover {
+  border-color: #e5c378 !important;
+  box-shadow: 0 16px 45px -5px rgba(0, 0, 0, 0.9), 0 0 30px rgba(212, 183, 110, 0.22) !important;
+}
+
+html.dark .category-card-right {
+  background-color: #14120e !important;
+}
+
+html.dark .menu-card-divider {
+  border-color: rgba(212, 183, 110, 0.25) !important;
+}
+
+html.dark .menu-row:hover {
+  background: rgba(212, 183, 110, 0.08) !important;
+}
+
+html.dark .menu-item-name {
+  color: #f2ede4 !important;
+}
+
+html.dark .menu-row:hover .menu-item-name {
+  color: #e5c378 !important;
+}
+
+html.dark .menu-item-desc {
+  color: #a49a89 !important;
+}
+
+html.dark .menu-leader-dots {
+  border-bottom-color: rgba(212, 183, 110, 0.3) !important;
+}
+
+html.dark .menu-row:hover .menu-leader-dots {
+  border-bottom-color: rgba(212, 183, 110, 0.85) !important;
+}
+
+html.dark .menu-item-price {
+  color: #e5c378 !important;
+}
+
+html.dark .item-badge {
+  background-color: rgba(184, 143, 58, 0.2) !important;
+  border-color: rgba(212, 183, 110, 0.5) !important;
+  color: #e5c378 !important;
+}
+
+html.dark .price-pill {
+  background-color: #1c1812 !important;
+  border-color: rgba(212, 183, 110, 0.5) !important;
+  color: #e5c378 !important;
+}
+
+html.dark .photo-name-badge {
+  background-color: rgba(20, 18, 14, 0.92) !important;
+  border-color: rgba(212, 183, 110, 0.55) !important;
+  color: #e5c378 !important;
+}
+
+html.dark footer {
+  background-color: #0c0b09 !important;
+  border-color: rgba(212, 183, 110, 0.2) !important;
+  color: #9e9381 !important;
+}
+
+html.dark footer p {
+  color: #8c8170 !important;
+}
+
+html.dark #imageModalContent {
+  background-color: #14120e !important;
+  border-color: #d4b76e !important;
+}
+
+html.dark #imageModalContent .modal-body {
+  background-color: #14120e !important;
+}
+
+html.dark #modalDesc {
+  color: #c4bbb0 !important;
+}
+
+html.dark #closeModalBtn {
+  background-color: rgba(24, 21, 16, 0.9) !important;
+  color: #e5c378 !important;
+}
+
+html.dark #closeModalBtn:hover {
+  background-color: #b88f3a !important;
+  color: #0c0b09 !important;
+}
+
+html.dark #backToTopBtn {
+  background-color: #181511 !important;
+  border-color: #d4b76e !important;
+  color: #e5c378 !important;
+}
+
+html.dark #backToTopBtn:hover {
+  background-color: #b88f3a !important;
+  color: #0c0b09 !important;
+}
+
+html.dark #emptyState h3 {
+  color: #f2ede4 !important;
+}
+
+html.dark #emptyState p {
+  color: #9e9381 !important;
+}
+
+html.dark #emptyState .empty-icon-box {
+  background-color: #181511 !important;
+  border-color: rgba(212, 183, 110, 0.4) !important;
+}
